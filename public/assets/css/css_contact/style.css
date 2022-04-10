@@ -1,0 +1,40 @@
+/* ----------------RESPONSIVE MOBILE-------------- */
+
+.main{
+    height: 800px;
+}
+
+.main>.row{
+    height: 100%;
+}
+
+.contentMiddle{
+    height:100%;
+}
+
+.first{
+    background-color: blueviolet;
+}
+
+.second{
+    background-color: chartreuse;
+}
+
+.third{
+    background-color: cornflowerblue;
+}
+
+
+.imgDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.imgDiv>img{
+    width: 90%;
+}
+/* --------------------------------------------------- */
+
+/* -------------------RESPONSIVE PC------------------- */
+
+/* ---------------------------------------------------- */

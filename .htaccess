@@ -1,0 +1,23 @@
+# links follow
+Options +FollowSymlinks 
+# rewrite Apache activate
+RewriteEngine On
+
+
+# /bienvenue -> /controllers/welcome-controller.php
+RewriteRule ^bienvenue$ /controllers/page-controller-welcome.php [L]
+
+# /accueil -> /controllers/home-controller.php
+RewriteRule ^accueil$ /controllers/page-controller-home.php [L]
+
+# /inscription -> /controllers/inscription-controller.php
+RewriteRule ^inscription$ /controllers/page-controller-inscription.php [L]
+
+# /category -> /controllers/category-controller.php
+RewriteRule ^category$ /controllers/page-controller-category.php [L]
+
+# /contact -> /controllers/contact-controller.php
+RewriteRule ^contact$ /controllers/page-controller-contact.php [L]
+
+
+
