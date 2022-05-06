@@ -71,7 +71,7 @@
                     <ul class="categoryList">
                         <?php
                         foreach ($categories as $value) {
-                            echo '<li><a href="/category">'.$value->title.'</a></li>';
+                            echo '<li><a href="/category?categoryTheme='.$value->title.'">'.$value->title.'</a></li>';
                         };
                     ?>
                     </ul>

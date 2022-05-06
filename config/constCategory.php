@@ -46,6 +46,10 @@
         (object)['title' => 'Zelda','desc' => '1','img' => 'metroidDread.jpg', 'year' => '2017'], 
         (object)['title' => 'DK','desc' => '2','img' => 'metroidDread.jpg', 'year' => '2017 '],
         (object)['title' => 'Mario','desc' => '3','img' => 'metroidDread.jpg', 'year' => '2017 '], 
-        (object)['title' => 'God of War','desc' => '4','img' => ' metroidDread.jpg', 'year' => '2017'], 
-        (object)['title' => 'Resident Evil','desc' => '5','img' => ' metroidDread.jpg', 'year' => '2017'],
+        (object)['title' => 'God of War','desc' => '4','img' => 'metroidDread.jpg', 'year' => '2017'], 
+        (object)['title' => 'Resident Evil','desc' => '5','img' => 'metroidDread.jpg', 'year' => '2017'],
+        (object)['title' => 'Zelda','desc' => '1','img' => 'metroidDread.jpg', 'year' => '2017'], 
+        (object)['title' => 'DK','desc' => '2','img' => 'metroidDread.jpg', 'year' => '2017 '],
+        (object)['title' => 'Mario','desc' => '3','img' => 'metroidDread.jpg', 'year' => '2017 '], 
+        
     ];

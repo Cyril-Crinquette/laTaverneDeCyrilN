@@ -29,6 +29,18 @@
     width: 90%;
 }
 
+.articlesCategory{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.articlesCategory>div{
+    margin: 20px 10px;
+}
+
+
 @media screen and (max-width: 768px) {
     #contact {
         font-size: larger;

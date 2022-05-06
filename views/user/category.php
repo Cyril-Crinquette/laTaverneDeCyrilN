@@ -4,7 +4,12 @@
     <div class="d-flex flex-column contentMiddle">
         <h1 id="mobileTitle" class="text-center"> <?=$category?> </h1>
         <div class="imgDiv">
-            <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
+            <img src="/public/assets/img/<?php 
+            if($_GET['categoryTheme'] = $categories->title){
+                echo $categories['img'];
+            }
+            
+            ?>" alt="image du jeu Slay the Spire">
             <img src="img" href="/category?categoryTheme=<?php echo $category->img?>"
                 alt="image de la catégorie en cours">
         </div>
@@ -13,27 +18,31 @@
                 facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
                 dignissimos officia nihil, fuga quod non. Error!</p>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <?php foreach ($articles as $article=> $value) { ?>
+        <div class="container ">
+            <div class="row ">
+                <div class="articlesCategory">
+                    <?php foreach ($articles as $value) { ?>
 
-            <div class="col">
-                <div class="card h-100">
-                    <?='<img src="/public/assets/img/'.$value->img. 'class="card-img-top" alt="image de l\'article">' ?>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $value->title?></h5>
+                    <div class="col-11 col-md-5 col-lg-3">
+                        <div class="card h-100">
+                            <?='<img src="/public/assets/img/'.$value->img. '"class="card-img-top" alt="image de l\'article">' ?>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $value->title?></h5>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"><?php echo $value->year?></small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><?php echo $value->year?></small>
-                    </div>
-                </div>
-            </div>
-            <?php
+                    <?php
     }
     ?>
+                </div>
+
+            </div>
         </div>
     </div>
+
 
 </div>
 
