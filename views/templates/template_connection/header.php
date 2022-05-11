@@ -1,4 +1,4 @@
-<!------------------ ------------------- Header de la page d'inscription -------------- ------------------------- -->
+<!------------------ ------------------- Header de la page de connexion -------------- ------------------------- -->
 
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/assets/css/style.css">
     <!-- Chargement de la feuille de style commune aux différentes pages -->
-    <link rel="stylesheet" href="/public/assets/css/css_contact/style.css">
+    <link rel="stylesheet" href="/public/assets/css/css_connection/style.css">
     <!-- Chargement de la feuille de style correspondant à la page d'inscription' -->
 </head>
 
@@ -27,10 +27,11 @@
                     <a href="/accueil"><img src="/public/assets/img/logo.svg" alt="Logo du site"></a>
                 </div>
                 <div class="col-8 titleHeader d-flex justify-content-center align-items-center">
-                    <h1 id="pcTitle"> Contact </h1>
+                    <h1 id="pcTitle"> Connexion </h1>
                 </div>
                 <div class="col-2 loginHeader d-flex justify-content-center align-items-center">
-                    <p> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
+                    <p><a href="/inscription">Inscription</a> </p>
+
                 </div>
             </div>
         </div>

@@ -1,39 +1,64 @@
 <!-- ------------------- Page d'inscription contenant le formulaire d'inscription ----------------------------- -->
 <h1 id="mobileTitle" class="text-center"> Inscription </h1>
-<form action="" method="post">
-    <div class="formDiv">
-        <label for="login">Mail</label>
-        <input type="text" name="login" id="login" value="<?=$login ?? ''?>">
-        <!-- Coallescente permettant de laisser affiché le login s'il est correct -->
-        <div>
-            <?= $errors['login'] ?? '' ?>
-            <!-- Coallescente permettant d'afficher l'erreur liée au login si elle existe -->
-        </div>
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" value="<?=$password ?? ''?>">
-        <!-- Coallescente permettant de laisser affiché le mot de passe s'il est correct -->
-        <div>
-            <?= $errors['password'] ?? '' ?>
-            <!-- Coallescente permettant d'afficher l'erreur liée au mot de passe si elle existe -->
-        </div>
-        <label for="confirmPassword">Confirmation du mot de passe</label>
-        <input type="password" name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
-        <!-- Coallescente permettant de laisser affiché la confirmation du mot de passe s'il est correct -->
-        <div>
-            <?= $errors['confirmPassword'] ?? '' ?>
-            <!-- Coallescente permettant d'afficher l'erreur liée à la confirmation du mot de passe si elle existe -->
-        </div>
-        <input type="submit" value="S'inscrire">
+<main>
+    <div class="img">
+        <img src="/public/assets/img/imgForm.jpg" alt="une photo de moi regardant l'objectif">
     </div>
-</form>
-
-<a href="/contact">
-    <p id="contact"> Qui suis-je? Me contacter</p>
+    <div class="text">
+        <form action="" method="post" novalidate>
+            <div class="formDiv">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" required name="pseudo" id="pseudo" value="<?=$pseudo ?? ''?>">
+                <!-- Coallescente permettant de laisser affiché le pseudo s'il est correct -->
+                <div class="errors">
+                    <?= $errors['pseudo'] ?? '' ?>
+                    <!-- Coallescente permettant d'afficher l'erreur liée au pseudo si elle existe -->
+                </div>
+                <label for="email">Mail</label>
+                <input type="email" required name="email" id="email" value="<?=$email ?? ''?>">
+                <!-- Coallescente permettant de laisser affiché l'email s'il est correct -->
+                <div class="errors">
+                    <?= $errors['email'] ?? '' ?>
+                    <!-- Coallescente permettant d'afficher l'erreur liée à l'email si elle existe -->
+                </div>
+                <label for="password">Mot de passe</label>
+                <input type="password" required name="password" id="password" value="<?=$password ?? ''?>">
+                <!-- Coallescente permettant de laisser affiché le mot de passe s'il est correct -->
+                <div class="errors">
+                    <?= $errors['password'] ?? '' ?>
+                    <!-- Coallescente permettant d'afficher l'erreur liée au mot de passe si elle existe -->
+                </div>
+                <label for="confirmPassword">Confirmation du mot de passe</label>
+                <input type="password" required name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
+                <!-- Coallescente permettant de laisser affichée la confirmation du mot de passe s'il est correct -->
+                <div class="errors">
+                    <?= $errors['confirmPassword'] ?? '' ?>
+                    <!-- Coallescente permettant d'afficher l'erreur liée à la confirmation du mot de passe si elle existe -->
+                </div>
+                <label for="filePicture">Télécharger votre photo</label>
+                <input class="form-control" type="file" id="filePicture" aria-describedby="filePictureHelp"
+                    placeholder="Photo de profil" accept="image/png, image/jpeg" name="filePicture">
+                <div class="errors">
+                    <?= $errors['filePicture'] ?? '' ?>
+                    <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
+                </div>
+                <input type="submit" value="S'inscrire">
+            </div>
+        </form>
+    </div>
+</main>
+<div id="contact">
+    <a href="/contact">
+        <p> Qui suis-je? Me contacter</p>
+    </a>
+</div>
+<a href="/accueil">
+    <p class="text-center">Retour au site</p>
 </a>
 
 <!---------------------------------------------  Modale de connexion  ------------------------------------------------ -->
 
-<div id="modal" class="modal">
+<!-- <div id="modal" class="modal">
     <form class="modal-content" action="" method="post">
         <div class="headContainer">
             <span id="close" class="close" title="Close Modal">&times;</span>
@@ -52,4 +77,5 @@
         </div>
 
     </form>
-</div>
+</div> -->
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->

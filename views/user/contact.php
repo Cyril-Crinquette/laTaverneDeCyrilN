@@ -1,8 +1,55 @@
-<p> J'ADORE MANGER DES KEBAB!!!!! </p>
+<!------------------------------------------------------- Vue de la page de contact --------------------------------------------------------- -->
+
+<h1 id="mobileTitle" class="text-center"> Contact </h1>
+<main> 
+    <div class="img">
+        <img src="/public/assets/img/contactMe.jpg" alt="une photo de moi regardant l'objectif">
+    </div>
+    <div class="text">
+        <div class="info">
+            <h4> Qui suis-je?</h4>
+            <p> J'aime étudier tous les langages de programmation à la Manu</p>
+        </div>
+        <div class="contact">
+            <h4> Me contacter </h4>
+            <form action="" method="post" novalidate>
+                <label for="email">Mail</label>
+                <input type="email" required name="email" id="email" value="<?=$email ?? ''?>">
+                <div class="errors"><?= $errors['email'] ?? '' ?></div>
+                <label for="name">Nom</label>
+                <input type="text" required name="name" id="name" value="<?=$name ?? ''?>">
+                <div class="errors"><?= $errors['name'] ?? '' ?></div>
+                <label for="contactMe">Votre message</label>
+                <textarea name="contactMe" id="contactMe" value="<?=$contactMe ?? ''?>"></textarea>
+                <div class="errors"><?= $errors['contactMe'] ?? '' ?></div>
+                <button type="submit">Soumettre</button>
+            </form>
+        </div>
+    </div>
+</main>
+<a href="/accueil">
+    <p class="text-center">Retour au site</p>
+</a>
+<!------------------------------------------------------- ------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!------------------------------------------------  Modale de connexion  --------------------------------------------------- -->
 
-<div id="modal" class="modal">
+<!-- <div id="modal" class="modal">
     <form class="modal-content" action="" method="post">
         <div class="headContainer">
             <span id="close" class="close" title="Close Modal">&times;</span>
@@ -26,5 +73,5 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->

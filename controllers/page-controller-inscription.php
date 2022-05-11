@@ -1,3 +1,5 @@
+<!------------------------------ Controller de la page "inscription", traitement php et appel des vues correspondantes -------------------- -->
+
 <?php
 
     # Appel des constantes et initialisation du tableau d'erreurs
@@ -7,21 +9,20 @@
 
     $errors=[];
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     # Traitement des données
 
-    $login = trim(filter_input(INPUT_POST, 'login', FILTER_SANITIZE_SPECIAL_CHARS));
-    // On vérifie que ce n'est pas vide
-    if (empty($login)) {
-        $errors['login'] = 'Veuillez saisir votre pseudo';
-    } else { // Pour les champs obligatoires, on retourne une erreur
-        $checkedLogin = filter_var(
-            $login,
-            FILTER_VALIDATE_REGEXP,
-            array("options" => array("regexp" => '/' . REG_EXP_LOGIN . '/'))
-        );
-        if (!$checkedLogin) {
-            $errors['login'] = 'Veuillez saisir un pseudo valide';
+    // Mail
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+
+    if (!empty($email)) {
+        $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if (!$testEmail) {
+            $error["email"] = "L'adresse email n'est pas au bon format";
         }
+    } else {
+        $error["email"] = "Veuillez rentrer une adresse mail";
     }
 
     // Vérification des mots de passe rentrés
@@ -30,7 +31,6 @@
         $confirmPassword = $_POST['confirmPassword'];
     }
     
-
     if (empty($password)) {
         $errors['password'] = 'Veuillez saisir votre mot de passe';
     } else {
@@ -54,6 +54,26 @@
         }
     }
 
+    // Vérification de la photo de profil
+    if (isset($_FILES['filePicture'])) {
+        $filePicture = $_FILES['filePicture'];
+        if(!empty($filePicture['tmp_name'])){
+            if($filePicture['error']>0){
+                $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
+            } else {
+                if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
+                    $errors["filePicture"] = "Le format du fichier n'est pas accepté";
+                } else {
+                    $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
+                    $from = $filePicture['tmp_name'];
+                    $fileName = uniqid('img_').'.'.$extension;
+                    $to = dirname(__FILE__).'/../public/uploads/'.$fileName;
+                    move_uploaded_file($from, $to);
+                }
+            }
+        } 
+    }
+}
 
 
 

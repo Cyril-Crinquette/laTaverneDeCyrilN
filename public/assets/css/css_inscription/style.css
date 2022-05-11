@@ -1,40 +1,92 @@
 /* ----------------RESPONSIVE MOBILE-------------- */
 
-.main{
-    height: 800px;
+main{
+    display: block;
+    width: 80%;
+    margin-top: 2em;
+    margin-left: 4em;
 }
 
-.main>.row{
+.img{
+    display:none;
+}
+
+.img>img{
+    object-fit: cover; 
     height: 100%;
+    width: 100%;
 }
 
-.contentMiddle{
-    height:100%;
+.text{
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.first{
-    background-color: blueviolet;
+form{
+    display: flex;
+    flex-direction: column;
 }
 
-.second{
-    background-color: chartreuse;
+.formDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.third{
-    background-color: cornflowerblue;
+.errors, input, label{
+    margin:0.3em;
 }
 
-
-.imgDiv{
+#contact{
     display: flex;
     justify-content: center;
 }
 
-.imgDiv>img{
-    width: 90%;
-}
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
 
+@media screen and (min-width: 768px) { 
+    .img{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    main{
+        margin: 1em 6em;
+    }
+
+    #contact{
+        justify-content: flex-end;
+        margin-right: 0.5em;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    main{
+        display: flex;
+        margin: 1em 10em;
+    }
+
+    .img{
+        width: 70%;
+        height: 100%;
+    }
+
+    .img>img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .text{
+        width: 30%
+    }
+
+}
 /* ---------------------------------------------------- */

@@ -1,40 +1,96 @@
 /* ----------------RESPONSIVE MOBILE-------------- */
 
-.main{
-    height: 800px;
+main{
+    display: block;
+    width: 80%;
+    margin-top: 2em;
 }
 
-.main>.row{
-    height: 100%;
-}
-
-.contentMiddle{
-    height:100%;
-}
-
-.first{
-    background-color: blueviolet;
-}
-
-.second{
-    background-color: chartreuse;
-}
-
-.third{
-    background-color: cornflowerblue;
-}
-
-
-.imgDiv{
+.img{
+    height: 60%;
+    width: 80%;
     display: flex;
     justify-content: center;
+    margin-left:5em;
 }
 
-.imgDiv>img{
-    width: 90%;
+.img>img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
+
+.text{
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    height:7em;
+}
+
+button{
+    margin-top: 0.5em;
+    width: 90px;
+}
+
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
 
+/* @media screen and (min-width: 768px) {
+    main{
+        display: flex;
+        height: 30em;
+        margin: 1em 10em;
+    }
+
+    .img{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: none;
+    }
+
+    .text{
+        margin:none;
+    }
+} */
+
+@media screen and (min-width: 992px) {
+    main{
+        display: flex;
+        height: 30em;
+        margin: 1em 10em;
+    }
+
+    .img{
+        width: 40%;
+        height: 100%;
+        margin: none;
+    }
+
+    .img>img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .text{
+        width: 60%;
+        margin:none;
+    }
+
+}
 /* ---------------------------------------------------- */

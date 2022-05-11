@@ -56,7 +56,7 @@
 </div>
 <!------------------------------------------------  Modale de connexion  --------------------------------------------------- -->
 
-<div id="modal" class="modal">
+<!-- <div id="modal" class="modal">
     <form class="modal-content" action="" method="post">
         <div class="headContainer">
             <span id="close" class="close" title="Close Modal">&times;</span>
@@ -80,5 +80,5 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->

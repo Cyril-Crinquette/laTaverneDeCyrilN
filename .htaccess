@@ -10,6 +10,9 @@ RewriteRule ^bienvenue$ /controllers/page-controller-welcome.php [L]
 # /accueil -> /controllers/home-controller.php
 RewriteRule ^accueil$ /controllers/page-controller-home.php [L]
 
+# /connection -> /controllers/connection-controller.php
+RewriteRule ^connexion$ /controllers/page-controller-connection.php [L]
+
 # /inscription -> /controllers/inscription-controller.php
 RewriteRule ^inscription$ /controllers/page-controller-inscription.php [L]
 

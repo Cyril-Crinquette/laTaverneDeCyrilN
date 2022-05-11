@@ -5,6 +5,10 @@
     width: 60px;
 }   
 
+#mobileTitle{
+    margin-top: 0.5em;
+}
+
 a{
     text-decoration:none;
     color: inherit;

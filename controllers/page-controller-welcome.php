@@ -1,4 +1,4 @@
-<!-------------------------- Controller de bienvenue, appel des vues de bienvenue--------------------- -->
+<!-------------------------- Controller de bienvenue, appel des vues de bienvenue --------------------- -->
 
 <?php
 

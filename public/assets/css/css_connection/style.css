@@ -1,0 +1,70 @@
+/* ----------------RESPONSIVE MOBILE-------------- */
+
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2em; */
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+main{
+    height: 350px;
+    width: 2000px;
+    /* width: 1000px; */
+    background-image: url(/public/assets/img/gamingConsoles.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formElement{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.formElement>input{
+    background-color: blueviolet;
+    border-color: azure;
+}
+
+.formValid{
+    display: flex;
+    justify-content: center;
+}
+
+.formValid>input{
+    background-color: yellow;
+    
+}
+
+#contact{
+    display: flex;
+    justify-content: center;
+}
+/* --------------------------------------------------- */
+
+
+/* -------------------RESPONSIVE PC------------------- */
+
+@media screen and (min-width: 768px) {
+    main{
+        height: 500px;
+    }
+
+    #contact{
+        justify-content: flex-end;
+        margin-right: 0.5em;
+    }
+}
+/* ---------------------------------------------------- */

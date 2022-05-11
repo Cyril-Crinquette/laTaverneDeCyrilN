@@ -29,7 +29,7 @@
                     <h1 id="pcTitle"> La taverne de Cyril </h1>
                 </div>
                 <div class="col-2 loginHeader d-flex justify-content-center align-items-center">
-                    <p class="loginButton"> Connexion/Inscription </p>
+                    <p> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <a href="/accueil"><img class="smallLogo" src="/public/assets/img/logo.svg" alt="Logo du site"></a>
                 </div>
                 <div>
-                    <p class="loginButton"> Connexion/Inscription </p>
+                    <p> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
                 </div>
             </div>
         </nav>
