@@ -25,6 +25,8 @@
         <p> Qui suis-je? Me contacter</p>
     </a>
 </div>
+<div class="text-center back">
 <a href="/accueil">
-    <p class="text-center">Retour au site</p>
+    <div>Retour au site</div>
 </a>
+</div>

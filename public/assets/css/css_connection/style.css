@@ -66,5 +66,11 @@ form{
         justify-content: flex-end;
         margin-right: 0.5em;
     }
+
+    .back{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3.5em;
+    }
 }
 /* ---------------------------------------------------- */

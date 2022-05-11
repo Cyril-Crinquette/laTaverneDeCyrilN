@@ -44,6 +44,10 @@ button{
     width: 90px;
 }
 
+.back{
+
+}
+
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
@@ -67,6 +71,14 @@ button{
         margin:none;
     }
 } */
+
+@media screen and (min-width: 768px) {
+    .back{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3.5em;
+    }
+}
 
 @media screen and (min-width: 992px) {
     main{

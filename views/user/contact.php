@@ -27,9 +27,11 @@
         </div>
     </div>
 </main>
+<div class="text-center back">
 <a href="/accueil">
-    <p class="text-center">Retour au site</p>
+    <div>Retour au site</div>
 </a>
+</div>
 <!------------------------------------------------------- ------------------------------------------------------------------------------------- -->
 
 

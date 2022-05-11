@@ -48,7 +48,7 @@
 
     include(dirname(__FILE__).'/../views/templates/template_connection/header.php');
     if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-        include(dirname(__FILE__).'/../views/user/confirmedMail.php');
+        include(dirname(__FILE__).'/../views/user/profile.php');
         // S'il n'y a aucune erreur et le formulaire est envoyé en post, alors on envoie l'utilisateur vers sa page de profil
     } else {
         include(dirname(__FILE__).'/../views/user/connection.php');

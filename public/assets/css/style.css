@@ -104,6 +104,12 @@ a:hover{
         list-style: none;
     }
 
+    footer{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0.5em;
+    }
+
     /*--------------------- Modale--------------------- */
 
     .modal {
