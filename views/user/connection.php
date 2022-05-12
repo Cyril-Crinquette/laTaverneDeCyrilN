@@ -2,7 +2,7 @@
 <h1 id="mobileTitle" class="text-center"> Connexion </h1>
 <div class="contain">
 <main>
-    <form action="" method="post" novalidate>
+    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" novalidate>
         <div class="formElement">
             <label for="email"> Mail:</label>
             <input type="email" name="email" id="email" value="<?=$email ?? ''?>">
@@ -15,6 +15,7 @@
         </div>
         <div class="formValid">
             <input type="submit" value="Connexion">
+            <a class="btn btn-secondary" href="/inscription">Pas encore de compte ?</a>
         </div>
     </form>
 </main>

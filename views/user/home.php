@@ -10,7 +10,10 @@
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
                 facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
                 dignissimos officia nihil, fuga quod non. Error!</p>
-        </div>        
+        </div>  
+        <?php if(!empty($_SESSION["user"])){?>
+            <a class="btn btn-warning" href="/déconnexion">Déconnexion</a>
+        <?php } ?>
     </div>
 </div>
 

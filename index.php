@@ -2,6 +2,6 @@
 
 
 header('location: /bienvenue');
-die;
+exit;
 
 // url redéfinie dans le fichier htaccess, chemin + simple et + rapide à écrire dans les liens

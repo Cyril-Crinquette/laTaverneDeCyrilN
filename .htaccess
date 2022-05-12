@@ -13,8 +13,14 @@ RewriteRule ^accueil$ /controllers/page-controller-home.php [L]
 # /connection -> /controllers/connection-controller.php
 RewriteRule ^connexion$ /controllers/page-controller-connection.php [L]
 
+# /deconnection -> /controllers/deconnection-controller.php
+RewriteRule ^déconnexion$ /controllers/page-controller-deconnection.php [L]
+
 # /inscription -> /controllers/inscription-controller.php
 RewriteRule ^inscription$ /controllers/page-controller-inscription.php [L]
+
+# /validation -> /controllers/validation-controller.php
+RewriteRule ^validation$ /controllers/page-controller-validation.php [L]
 
 # /category -> /controllers/category-controller.php
 RewriteRule ^category$ /controllers/page-controller-category.php [L]
@@ -22,5 +28,16 @@ RewriteRule ^category$ /controllers/page-controller-category.php [L]
 # /contact -> /controllers/contact-controller.php
 RewriteRule ^contact$ /controllers/page-controller-contact.php [L]
 
+# /profile -> /controllers/profile-controller.php
+RewriteRule ^profil$ /controllers/page-controller-profile.php [L]
+
+# /messageContact -> /controllers/messageContact-controller.php
+RewriteRule ^confirmation$ /controllers/page-controller-messageContact.php [L]
+
+# /error -> /controllers/error-controller.php
+RewriteRule ^erreur$ /controllers/page-controller-error.php [L]
+
+# /confirmedMail -> /controllers/confirmedMail-controller.php
+RewriteRule ^envoi$ /controllers/page-controller-confirmedMail.php [L]
 
 

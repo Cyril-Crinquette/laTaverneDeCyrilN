@@ -1,12 +1,11 @@
 <?php
 
-require_once(dirname(__FILE__).'/constBase.php');
+require_once(dirname(__FILE__).'../config/constBase.php');
 
 $error = null;
 
 class Database
 {
-
     public static function dbConnect(): object
     { 
         try {
@@ -15,7 +14,7 @@ class Database
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
             ]);
         } catch (PDOException $exception) {
-            header('location: /controllers/page-controller-error.php?error=1');
+            header('location: /erreur?error=1');
             exit;
         }
         return $pdo;

@@ -5,7 +5,7 @@
         <img src="/public/assets/img/imgForm.jpg" alt="une photo de moi regardant l'objectif">
     </div>
     <div class="text">
-        <form action="" method="post" novalidate>
+        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" novalidate>
             <div class="formDiv">
                 <label for="pseudo">Pseudo</label>
                 <input type="text" required name="pseudo" id="pseudo" value="<?=$pseudo ?? ''?>">
