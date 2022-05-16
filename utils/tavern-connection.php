@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__).'../config/constBase.php');
+require_once(dirname(__FILE__).'/../config/constBase.php');
 
 $error = null;
 

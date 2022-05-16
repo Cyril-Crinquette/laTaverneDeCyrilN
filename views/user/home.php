@@ -3,6 +3,7 @@
 <div class="secondColumn col-12 col-md-8">
     <div class="d-flex flex-column contentMiddle">
         <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
+        <a href="/dash-board"><strong><p class="text-center">Envoi vers le dash board administrateur (exemple)</p></strong></a>
         <div class="imgDiv">
             <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
         </div>

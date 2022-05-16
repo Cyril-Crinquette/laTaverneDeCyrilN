@@ -19,14 +19,13 @@ class User
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(int $id_roles = '', string $pseudo = '', string $email = '', string $password = '', string $description = '', ?string $validated_at = NULL)
+    public function __construct( string $pseudo , string $email , string $password , string $description= '' , int $id_roles =2)
     {
         $this->setIdRoles($id_roles);
         $this->setPseudo($pseudo);
         $this->setEmail($email);
         $this->setPassword($password);
         $this->setDescription($description);
-        $this->setValidatedAt($validated_at);
         $this->_pdo = Database::dbConnect();
     }
     //----------------------------------------------------------------------------------------
@@ -140,8 +139,8 @@ class User
     public function save(){
         try {
             // On créé la requête avec des marqueurs nominatifs
-            $sql = 'INSERT INTO `users` (`id_roles`,`pseudo`, `email`, `password`,`description`, `validated_at`) 
-                    VALUES (:id_roles, :pseudo, :email, :password, :description, :validated_at);';
+            $sql = 'INSERT INTO `users` (`id_roles`,`pseudo`, `email`, `password`,`description`) 
+                    VALUES (:id_roles, :pseudo, :email, :password, :description);';
 
             // On prépare la requête
             $sth = Database::dbConnect()->prepare($sql);
@@ -152,7 +151,6 @@ class User
             $sth->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
             $sth->bindValue(':description', $this->getDescription(), PDO::PARAM_STR);
-            $sth->bindValue(':validated_at', $this->getValidatedAt(), PDO::PARAM_STR);
             // On retourne directement true si la requête s'est bien exécutée ou false dans le cas contraire
             return $sth->execute();
         } catch (PDOException $e) {

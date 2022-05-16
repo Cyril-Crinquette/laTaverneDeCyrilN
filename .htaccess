@@ -25,11 +25,17 @@ RewriteRule ^validation$ /controllers/page-controller-validation.php [L]
 # /category -> /controllers/category-controller.php
 RewriteRule ^category$ /controllers/page-controller-category.php [L]
 
+# /article -> /controllers/article-controller.php
+RewriteRule ^article$ /controllers/page-controller-article.php [L]
+
 # /contact -> /controllers/contact-controller.php
 RewriteRule ^contact$ /controllers/page-controller-contact.php [L]
 
 # /profile -> /controllers/profile-controller.php
 RewriteRule ^profil$ /controllers/page-controller-profile.php [L]
+
+# /userModify -> /controllers/userModify-controller.php
+RewriteRule ^modification-utilisateur$ /controllers/page-controller-userModify.php [L]
 
 # /messageContact -> /controllers/messageContact-controller.php
 RewriteRule ^confirmation$ /controllers/page-controller-messageContact.php [L]
@@ -39,5 +45,8 @@ RewriteRule ^erreur$ /controllers/page-controller-error.php [L]
 
 # /confirmedMail -> /controllers/confirmedMail-controller.php
 RewriteRule ^envoi$ /controllers/page-controller-confirmedMail.php [L]
+
+# /dashBoardAdmin -> /controllers/dashBoardAdmin-controller.php
+RewriteRule ^dash-board$ /controllers/page-controller-dashBoardAdmin.php [L]
 
 

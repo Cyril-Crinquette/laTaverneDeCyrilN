@@ -37,7 +37,7 @@ if (!empty($email)) {
     if (!$testEmail) {
         $error["email"] = "L'adresse email n'est pas au bon format";
     }
-    if(User::isMailExists($mail)){
+    if(User::isMailExists($email)){
         $errorsArray['mail_error'] = 'Ce mail existe déjà dans la taverne';
     }
 } else {
@@ -94,7 +94,7 @@ if (isset($_FILES['filePicture'])) {
 
 if(empty($errors)){
     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $user = new User($id_roles, $pseudo, $email, $password, $description, $validated_at);
+    $user = new User($pseudo, $email, $securedPassword);
     $user->save();
     $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/validation?jwt='.$email;
     $message = '

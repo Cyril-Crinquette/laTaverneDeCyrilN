@@ -1,4 +1,4 @@
-<!------------------------------ Controller d'une catégorie, appel des vues relatives-------------------- -->
+<!------------------------------ Controller d'un article, appel des vues relatives-------------------- -->
 
 <?php
 
@@ -8,18 +8,19 @@ require_once dirname(__FILE__) . '/../utils/init.php';
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 require_once dirname(__FILE__) . '/../models/Article.php';
+require_once dirname(__FILE__) . '/../models/Remark.php';
 
 // Appel de la constante "category"
 require_once(dirname(__FILE__).'/../config/constCategory.php');
 
-// Récupération du type de catégorie choisi dans le get
+// Récupération du type titre de l'article dans le get
 if(!empty($_GET)){
-    $category = $_GET['categoryTheme'];
+    $articleTitle = $_GET['articleTitle'];
 };
 
 
-// Appel des vues de la page category
-    include(dirname(__FILE__).'/../views/templates/template_category/header.php');
-    include(dirname(__FILE__).'/../views/user/category.php');
+// Appel des vues de la page article
+    include(dirname(__FILE__).'/../views/templates/template_article/header.php');
+    include(dirname(__FILE__).'/../views/user/article.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
-    // La vue du footer de la page category correspond au footer général
+    // La vue du footer de la page article correspond au footer général

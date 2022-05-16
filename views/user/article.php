@@ -1,4 +1,6 @@
-<!------------------ ----------------------- Vue de la page de catégories ------------------------------------------- -->
+<!------------------ ----------------------- Vue de la page article ------------------------------------------- -->
+
+<!-- VUE NON DEFINITIVE, A MODIFIER ULTERIEUREMENT -->
 
 <div class="secondColumn col-12 col-md-8">
     <div class="d-flex flex-column contentMiddle">
