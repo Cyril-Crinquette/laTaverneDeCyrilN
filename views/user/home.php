@@ -1,62 +1,65 @@
 <!------------------------------------------------------- Vue de la page d'accueil--------------------------------------------------------- -->
-
-<div class="secondColumn col-12 col-md-8">
-    <div class="d-flex flex-column contentMiddle">
-        <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
-        <a href="/dash-board"><strong><p class="text-center">Envoi vers le dash board administrateur (exemple)</p></strong></a>
-        <div class="imgDiv">
-            <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
-        </div>
-        <div>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                dignissimos officia nihil, fuga quod non. Error!</p>
-        </div>  
-        <?php if(!empty($_SESSION["user"])){?>
-            <a class="btn btn-warning" href="/déconnexion">Déconnexion</a>
-        <?php } ?>
-    </div>
-</div>
-
-<div class="thirdColumn col-12 col-md-2">
-    <div>
-        <h4 class="text-center">Coups de coeur de l'année</h4>
-        <!--------------------------------------------- Intégration du carroussel:coups de coeur ------------------------------------------------->
-        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
-            data-bs-interval="false">
-            <div class="carousel-inner cardHeight ">
-                <div class="carousel-item active">
-                    <img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
-                        alt="image du jeu Metroid Dread">
+<div class="container-fluid main">
+    <div class="row">
+    <?php 
+    include(dirname(__FILE__).'/../templates/navbar.php');
+    ?>
+        <div class="secondColumn col-12 col-md-8">
+            <div class="d-flex flex-column contentMiddle">
+                <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
+                <a href="/dash-board"><strong>
+                        <p class="text-center">Envoi vers le dash board administrateur (exemple)</p>
+                    </strong></a>
+                <div class="imgDiv">
+                    <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
                 </div>
-                <div class="carousel-item">
-                    <img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
-                        alt="image du jeu The Evil Within">
-                </div>
-                <div class="carousel-item">
-                    <img src="public/assets/img/slayTheSpire.jpeg" class="d-block w-100"
-                        alt="image du jeu Slay the Spire">
+                <div>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                        dignissimos officia nihil, fuga quod non. Error!</p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-    </div>
-    <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
-    <a href="/contact">
-        <p id="contact"> Qui suis-je? Me contacter</p>
-    </a>
-</div>
 
-</div>
+        <div class="thirdColumn col-12 col-md-2">
+            <div>
+                <h4 class="text-center">Coups de coeur de l'année</h4>
+                <!--------------------------------------------- Intégration du carroussel:coups de coeur ------------------------------------------------->
+                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+                    data-bs-interval="false">
+                    <div class="carousel-inner cardHeight ">
+                        <div class="carousel-item active">
+                            <img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
+                                alt="image du jeu Metroid Dread">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
+                                alt="image du jeu The Evil Within">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="public/assets/img/slayTheSpire.jpeg" class="d-block w-100"
+                                alt="image du jeu Slay the Spire">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
+            <a href="/contact">
+                <p id="contact"> Qui suis-je? Me contacter</p>
+            </a>
+        </div>
+
+    </div>
 </div>
 <!------------------------------------------------  Modale de connexion  --------------------------------------------------- -->
 

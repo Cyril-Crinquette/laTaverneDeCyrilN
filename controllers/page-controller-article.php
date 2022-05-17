@@ -10,6 +10,10 @@ require_once dirname(__FILE__) . '/../models/User.php';
 require_once dirname(__FILE__) . '/../models/Article.php';
 require_once dirname(__FILE__) . '/../models/Remark.php';
 
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'article.css';
+$pageTitle = 'Article';
+
 // Appel de la constante "category"
 require_once(dirname(__FILE__).'/../config/constCategory.php');
 
@@ -20,7 +24,7 @@ if(!empty($_GET)){
 
 
 // Appel des vues de la page article
-    include(dirname(__FILE__).'/../views/templates/template_article/header.php');
+    include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/article.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
     // La vue du footer de la page article correspond au footer général

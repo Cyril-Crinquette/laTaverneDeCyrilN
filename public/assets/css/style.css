@@ -21,6 +21,7 @@ a:hover{
 }
 
 /*----------------------- NAVBAR ----------------- */
+
 .mobileNav{
     --bs-bg-opacity: 1;
     background-color: rgb(38, 112, 87);
@@ -62,6 +63,8 @@ a:hover{
     body {
         background-color: aquamarine;
     }
+
+    
 
     #mobileTitle{
         display: none;
@@ -110,6 +113,12 @@ a:hover{
         margin-right: 0.5em;
     }
 
+    #userPicture{
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-color: rgb(58, 4, 4);
+    }
     /*--------------------- Modale--------------------- */
 
     .modal {
@@ -144,4 +153,6 @@ a:hover{
         /* Could be more or less, depending on screen size */
     }
     /* ---------------------------------------------------- */
+    /* ----------------------------------------------------- */
+
 }

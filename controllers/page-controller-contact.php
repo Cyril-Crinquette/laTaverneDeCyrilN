@@ -8,6 +8,10 @@ require_once dirname(__FILE__) . '/../utils/init.php';
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'contact.css';
+$pageTitle = 'Contact';
+
 //Appel des constantes et initialisation du tableau d'erreurs
 require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
@@ -58,12 +62,12 @@ if(!empty($contactMe)){
 
 // Appel des vues de la page contact 
 
-include(dirname(__FILE__).'/../views/templates/template_contact/header.php');
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     // S'il n'y a aucune erreur et le formulaire est envoyé en post, alors on confirme à l'utilisateur le bon envoi du message
     header('location: /confirmation');
     exit;
 } else {
+    include(dirname(__FILE__).'/../views/templates/header.php');
     // Si des erreurs persistent, on renvoie l'utilisateur vers la page de contact, autant que nécessaire
     include(dirname(__FILE__).'/../views/user/contact.php');
 } 

@@ -1,6 +1,5 @@
 <!------------------------- Controller de l'accueil, appel des vues de l'accueil-------------------------- -->
 
-
 <?php
 
 // Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données etc..
@@ -8,6 +7,10 @@ require_once dirname(__FILE__) . '/../utils/init.php';
 
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
+
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'home.css';
+$pageTitle = 'La taverne de Cyril';
 
 // Appel de la constante "category"
 require_once(dirname(__FILE__).'/../config/constCategory.php');

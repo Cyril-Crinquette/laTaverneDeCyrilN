@@ -18,7 +18,7 @@ class Article
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(int $id_users = '', string $title = '', string $content = '', string $publicated_at = '')
+    public function __construct(int $id_users = 0, string $title = '', string $content = '', string $publicated_at = '')
     {
         $this->setIdUsers($id_users);
         $this->setTitle($title);

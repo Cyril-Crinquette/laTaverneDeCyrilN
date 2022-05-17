@@ -11,6 +11,10 @@ require_once(dirname(__FILE__).'/../helpers/sessionFlash.php');
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'userModify.css';
+$pageTitle = 'Modification du profil';
+
 // $email= intval(filter_input(INPUT_GET,'email',FILTER_SANITIZE_SPECIAL_CHARS));
 //     $user = User::getByEmail($email);
 //     if ($patient instanceof PDOException) {
@@ -20,6 +24,6 @@ require_once dirname(__FILE__) . '/../models/User.php';
 # CONTROLLER NON DEFINITIF!!! A COMPLETER ULTERIEUREMENT
 
 // Appel des vues
-include(dirname(__FILE__).'/../views/templates/template_userModify/header.php');
+include(dirname(__FILE__).'/../views/templates/header.php');
 include(dirname(__FILE__).'/../views/user/userModify.php');
 include(dirname(__FILE__).'/../views/templates/footer.php');

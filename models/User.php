@@ -19,13 +19,14 @@ class User
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct( string $pseudo , string $email , string $password , string $description= '' , int $id_roles =2)
+    public function __construct(string $pseudo , string $email , string $password , string $description= '', int $id_roles =2, ?string $validated_at= '')
     {
-        $this->setIdRoles($id_roles);
         $this->setPseudo($pseudo);
         $this->setEmail($email);
         $this->setPassword($password);
         $this->setDescription($description);
+        $this->setIdRoles($id_roles);
+        $this->setValidatedAt($validated_at);
         $this->_pdo = Database::dbConnect();
     }
     //----------------------------------------------------------------------------------------
@@ -139,8 +140,8 @@ class User
     public function save(){
         try {
             // On créé la requête avec des marqueurs nominatifs
-            $sql = 'INSERT INTO `users` (`id_roles`,`pseudo`, `email`, `password`,`description`) 
-                    VALUES (:id_roles, :pseudo, :email, :password, :description);';
+            $sql = 'INSERT INTO `users` (`id_roles`,`pseudo`, `email`, `password`) 
+                    VALUES (:id_roles, :pseudo, :email, :password);';
 
             // On prépare la requête
             $sth = Database::dbConnect()->prepare($sql);
@@ -150,7 +151,6 @@ class User
             $sth->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
             $sth->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
-            $sth->bindValue(':description', $this->getDescription(), PDO::PARAM_STR);
             // On retourne directement true si la requête s'est bien exécutée ou false dans le cas contraire
             return $sth->execute();
         } catch (PDOException $e) {
@@ -165,12 +165,12 @@ class User
     public static function getByEmail(string $email): object{
         try {
             $sql = 'SELECT * FROM `users` 
-                    WHERE `email` = :email';
+                    WHERE `users`.`email` = :email';
 
             $sth = Database::dbConnect()->prepare($sql);
             $sth->bindValue(':email', $email, PDO::PARAM_STR);
-            $result = $sth->execute();
-            $user = $result->fetch();
+            $sth->execute();
+            $user = $sth->fetch();
 
             if(!$user){
                 throw new PDOException('L\'utilisateur n\'a pas été trouvé');
@@ -186,7 +186,7 @@ class User
 
     // Méthode update permettant de modifier les informations d'un utilisateur à partir de son id---------------
 
-    public function update($id): mixed
+    public function update($id): bool
     {
         try {
             $sql = 'UPDATE `users` 

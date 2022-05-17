@@ -8,9 +8,18 @@ require_once dirname(__FILE__).'/../utils/init.php';
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'inscription.css';
+$pageTitle = 'Inscription';
+
 # Appel des constantes et initialisation du tableau d'erreurs
 require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
+
+// Sécurisation de la validation du compte par envoi de mail
+// require_once(dirname(__FILE__).'/../helpers/JWT.php');
+// ATTENTION CONTINUER ULTERIEUREMENT L'ADAPTATION POUR LE TOKEN
+
 
 $errors=[];
 
@@ -35,10 +44,10 @@ $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
 
 if (!empty($email)) {
     if (!$testEmail) {
-        $error["email"] = "L'adresse email n'est pas au bon format";
+        $errors["email"] = "L'adresse email n'est pas au bon format";
     }
     if(User::isMailExists($email)){
-        $errorsArray['mail_error'] = 'Ce mail existe déjà dans la taverne';
+        $errors['email'] = 'Ce mail existe déjà dans la taverne';
     }
 } else {
     $error["email"] = "Veuillez rentrer une adresse mail";
@@ -92,33 +101,32 @@ if (isset($_FILES['filePicture'])) {
     } 
 }
 
+
 if(empty($errors)){
     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $user = new User($pseudo, $email, $securedPassword);
+    $user = new User($pseudo, $email, $securedPassword, "", 2);
     $user->save();
-    $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/validation?jwt='.$email;
+    $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/validation?mail='.$email;
     $message = '
     Veuillez cliquer sur le lien suivant:<br>
     <a href="'.$link.'">Activation</a>
     ';
     mail($email, 'Validation de votre inscription', $message);
-}
 
 }
 
-
-
-
+}
 
 
 # Appel des vues
-include(dirname(__FILE__).'/../views/templates/template_inscription/header.php');
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('location: /envoi');
+        header('location: /envoi');
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'utilisateur vers la page de confirmation d'envoi de mail
 } else {
+    include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/inscription.php');
+    include(dirname(__FILE__).'/../views/templates/footer.php');
+    // Le footer général suffit pour la page d'inscription
 }  // Si des erreurs persistent, on renvoie l'utilisateur vers la page d'inscription, autant que nécessaire
 
-include(dirname(__FILE__).'/../views/templates/footer.php');
-// Le footer général suffit pour la page d'inscription
+

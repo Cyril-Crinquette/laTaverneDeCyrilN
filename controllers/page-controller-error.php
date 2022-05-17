@@ -8,6 +8,10 @@ require_once dirname(__FILE__) . '/../utils/init.php';
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'error.css';
+$pageTitle = 'Erreur';
+
 $msgError = "Vous n'êtes pas connecté à la base de données";
 $error = intval(filter_input(INPUT_GET, 'error', FILTER_SANITIZE_NUMBER_INT));
 // switch ($error) {
@@ -19,6 +23,6 @@ $error = intval(filter_input(INPUT_GET, 'error', FILTER_SANITIZE_NUMBER_INT));
 //         break;
 // }
 
-include(dirname(__FILE__).'/../views/templates/template_error/header.php');
+include(dirname(__FILE__).'/../views/templates/header.php');
 include(dirname(__FILE__).'/../views/error.php');
 include(dirname(__FILE__).'/../views/templates/footer.php');

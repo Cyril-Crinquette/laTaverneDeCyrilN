@@ -1,0 +1,1 @@
+<p>Votre inscription a bien été validée!</p>

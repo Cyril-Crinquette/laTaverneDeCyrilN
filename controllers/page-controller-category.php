@@ -2,6 +2,8 @@
 
 <?php
 
+require_once dirname(__FILE__) . '/../config/constCategory.php';
+
 // Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données, etc...
 require_once dirname(__FILE__) . '/../utils/init.php';
 
@@ -9,17 +11,15 @@ require_once dirname(__FILE__) . '/../utils/init.php';
 require_once dirname(__FILE__) . '/../models/User.php';
 require_once dirname(__FILE__) . '/../models/Article.php';
 
-// Appel de la constante "category"
-require_once(dirname(__FILE__).'/../config/constCategory.php');
-
-// Récupération du type de catégorie choisi dans le get
-if(!empty($_GET)){
-    $category = $_GET['categoryTheme'];
-};
+// Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
+$style = 'category.css';
+$id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+$category = Category::getOne($id);
+$pageTitle = $category->name;
 
 
 // Appel des vues de la page category
-    include(dirname(__FILE__).'/../views/templates/template_category/header.php');
+    include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/category.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
     // La vue du footer de la page category correspond au footer général

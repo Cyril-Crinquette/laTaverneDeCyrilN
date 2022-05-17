@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class SessionFlash{
 
     public static function set(string $message):void{   
