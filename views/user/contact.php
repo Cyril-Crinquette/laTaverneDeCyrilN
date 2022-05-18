@@ -22,7 +22,7 @@
                 <label for="contactMe">Votre message</label>
                 <textarea name="contactMe" id="contactMe" value="<?=$contactMe ?? ''?>"></textarea>
                 <div class="errors"><?= $errors['contactMe'] ?? '' ?></div>
-                <button type="submit">Soumettre</button>
+                <button id="validMsg" type="submit">Soumettre</button>
             </form>
         </div>
     </div>

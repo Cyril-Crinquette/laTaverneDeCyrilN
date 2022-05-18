@@ -7,14 +7,17 @@
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
-                <a href="/dash-board"><strong>
-                        <p class="text-center">Envoi vers le dash board administrateur (exemple)</p>
-                    </strong></a>
                 <div class="imgDiv">
                     <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
                 </div>
-                <div>
+                <div class= "textContent">
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                        dignissimos officia nihil, fuga quod non. Error!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                        dignissimos officia nihil, fuga quod non. Error!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
                         facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
                         dignissimos officia nihil, fuga quod non. Error!</p>
                 </div>
@@ -23,7 +26,7 @@
 
         <div class="thirdColumn col-12 col-md-2">
             <div>
-                <h4 class="text-center">Coups de coeur de l'année</h4>
+                <h4 class="text-center feelings">Coups de coeur de l'année</h4>
                 <!--------------------------------------------- Intégration du carroussel:coups de coeur ------------------------------------------------->
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
                     data-bs-interval="false">

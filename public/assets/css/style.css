@@ -1,12 +1,42 @@
 /* --------------RESPONSIVE MOBILE---------------- */
 
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap%27');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Joti One';
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
 .smallLogo {
     height: 60px;
     width: 60px;
 }   
 
+h1{
+    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke-color: rgb(171,11,11);
+} 
+
+h4{
+    -webkit-text-stroke: 0.3px;
+    -webkit-text-stroke-color: rgb(171,11,11);
+}
+
 #mobileTitle{
-    margin-top: 0.5em;
+    margin-top: 0.9em;
 }
 
 a{
@@ -20,11 +50,17 @@ a:hover{
     transform: scale(1.05);
 }
 
+#userPicture{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(58, 4, 4);
+}
 /*----------------------- NAVBAR ----------------- */
 
 .mobileNav{
     --bs-bg-opacity: 1;
-    background-color: rgb(38, 112, 87);
+    background-color: rgb(27,172,22);
     display: flex;
     flex-wrap: wrap;
 }
@@ -38,8 +74,8 @@ a:hover{
 .listNavMobile>div{
     margin: 5px 0;
     width: 95%;
-    background-color: rgb(79, 138, 118);
-    border: 3px solid rgb(12, 71, 51);
+    background-color: rgb(171,11,11);
+    border: 3px solid white;
     text-align: center;
     color: white;
 }
@@ -60,12 +96,12 @@ a:hover{
 /* ---------------------RESPONSIVE PC------------------- */
 
 @media screen and (min-width: 768px) {
-    body {
-        background-color: aquamarine;
+
+    body{
+        height: 130%; 
+        border: solid 1.2em rgb(27,172,22);
     }
-
     
-
     #mobileTitle{
         display: none;
     }
@@ -82,21 +118,27 @@ a:hover{
         height: 100px;
     }
 
-    .logo {
-        background-color: blue;
-    }
+    /* .logo {
+    } */
 
     .logo>img{
         height:100%;
     }
 
-    .titleHeader {
-        background-color: brown;
+    /* .titleHeader {
+    } */
 
-    }
+    /* .loginHeader {
+    } */
 
-    .loginHeader {
-        background-color: coral;
+    h1{
+        -webkit-text-stroke: 0.8px;
+        -webkit-text-stroke-color: rgb(171,11,11);
+    } 
+
+    h4{
+        -webkit-text-stroke: 0.4px;
+        -webkit-text-stroke-color: rgb(171,11,11);
     }
 
     .loginHeader>p:hover{
@@ -113,12 +155,6 @@ a:hover{
         margin-right: 0.5em;
     }
 
-    #userPicture{
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
-        background-color: rgb(58, 4, 4);
-    }
     /*--------------------- Modale--------------------- */
 
     .modal {

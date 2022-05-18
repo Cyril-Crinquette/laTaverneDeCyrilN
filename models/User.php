@@ -183,6 +183,29 @@ class User
         }
     }
     //-----------------------------------------------------------------------------------------------------
+    // Méthode getOne permettant d'obtenir un utilisateur à partir de son id ------------------------------------
+
+    public static function getOne(int $id): object{
+        try {
+            $sql = 'SELECT * FROM `users` 
+                    WHERE `users`.`id` = :id';
+
+            $sth = Database::dbConnect()->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+            $sth->execute();
+            $user = $sth->fetch();
+
+            if(!$user){
+                throw new PDOException('L\'utilisateur n\'existe pas');
+            } else {
+                return $user;
+            }
+
+        } catch (\PDOException $e) {
+            return $e;
+        }
+    }
+    //-----------------------------------------------------------------------------------------------------
 
     // Méthode update permettant de modifier les informations d'un utilisateur à partir de son id---------------
 

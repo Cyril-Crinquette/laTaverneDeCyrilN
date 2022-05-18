@@ -15,8 +15,8 @@
                 echo $categories['img'];
             }
             ?>">
-                    <img src="img" href="/category?categoryTheme=<?php echo $category->img?>"
-                        alt="image de la catégorie en cours">
+                    <!-- <img src="img" href="/category?categoryTheme=<?php //echo $category->img?>"
+                        alt="image de la catégorie en cours"> -->
                 </div>
                 <div>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus

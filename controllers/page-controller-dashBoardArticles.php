@@ -1,4 +1,4 @@
-<!-------------------------------- Controller du dash board, appel des vues du dash board -------------------------------- -->
+<!-------------------------------- Controller du dash board articles, appel des vues du dash board articles -------------------------------- -->
 <?php
 
 // Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données etc..
@@ -9,9 +9,9 @@ require_once dirname(__FILE__) . '/../models/User.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'dashBoardAdmin.css';
-$pageTitle = 'Dash board utilisateurs';
+$pageTitle = 'Dash board articles';
 
-$usersList = User::getAll();
+$articlesList = User::getAll();
 // $usersList = User::getAll($search);
 
 $email= $_SESSION['user']->email;
@@ -24,5 +24,5 @@ if($user->id_roles != 1) {
 
 // Appel des vues
 include(dirname(__FILE__).'/../views/templates/header.php');
-include(dirname(__FILE__).'/../views/user/dashBoardAdmin.php');
+include(dirname(__FILE__).'/../views/user/dashBoardArticles.php');
 include(dirname(__FILE__).'/../views/templates/footer.php');

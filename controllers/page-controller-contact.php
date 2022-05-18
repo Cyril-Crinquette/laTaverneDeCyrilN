@@ -49,7 +49,7 @@ if (empty($name)) {
 }
 
 // Message
-$contactMe = trim(filter_input(INPUT_POST, 'contactMe', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+$contactMe = trim(filter_input(INPUT_POST, 'contactMe', FILTER_SANITIZE_SPECIAL_CHARS));
 if(!empty($contactMe)){
     $checkMsg = filter_var($contactMe, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
     if(!$checkMsg){

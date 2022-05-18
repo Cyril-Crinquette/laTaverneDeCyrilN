@@ -51,13 +51,23 @@ form{
 #contact{
     display: flex;
     justify-content: center;
+    margin-bottom: 1em;
 }
+
+.back{
+    margin-bottom: 1em;
+}
+
 /* --------------------------------------------------- */
 
 
 /* -------------------RESPONSIVE PC------------------- */
 
 @media screen and (min-width: 768px) {
+    body{
+        height:120%;
+    }
+
     main{
         height: 500px;
     }
@@ -65,12 +75,15 @@ form{
     #contact{
         justify-content: flex-end;
         margin-right: 0.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
 
     .back{
         display: flex;
         justify-content: flex-end;
         margin-right: 3.5em;
+        margin-bottom: 1em;
     }
 }
 /* ---------------------------------------------------- */

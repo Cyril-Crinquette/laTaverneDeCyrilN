@@ -9,7 +9,7 @@ require_once dirname(__FILE__).'/../utils/init.php';
 require_once dirname(__FILE__) . '/../models/User.php';
 
 // Sécurisation de la validation du compte par envoi de mail
-require_once(dirname(__FILE__).'/../helpers/JWT.php');
+// require_once(dirname(__FILE__).'/../helpers/JWT.php');
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'validation.css';

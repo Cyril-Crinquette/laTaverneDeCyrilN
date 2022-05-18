@@ -34,8 +34,14 @@ RewriteRule ^contact$ /controllers/page-controller-contact.php [L]
 # /profile -> /controllers/profile-controller.php
 RewriteRule ^profil$ /controllers/page-controller-profile.php [L]
 
+# /createArticle -> /controllers/createArticle-controller.php
+RewriteRule ^nouvel-article$ /controllers/page-controller-createArticle.php [L]
+
 # /userModify -> /controllers/userModify-controller.php
 RewriteRule ^modification-utilisateur$ /controllers/page-controller-userModify.php [L]
+
+# /articleModify -> /controllers/articleModify-controller.php
+RewriteRule ^modification-article$ /controllers/page-controller-articleModify.php [L]
 
 # /messageContact -> /controllers/messageContact-controller.php
 RewriteRule ^confirmation$ /controllers/page-controller-messageContact.php [L]
@@ -48,5 +54,11 @@ RewriteRule ^envoi$ /controllers/page-controller-confirmedMail.php [L]
 
 # /dashBoardAdmin -> /controllers/dashBoardAdmin-controller.php
 RewriteRule ^dash-board$ /controllers/page-controller-dashBoardAdmin.php [L]
+
+# /dashBoardArticles -> /controllers/dashBoardArticles-controller.php
+RewriteRule ^dash-board-articles$ /controllers/page-controller-dashBoardArticles.php [L]
+
+# /delete -> /controllers/page-controller-delete.php
+RewriteRule ^suppression$ /controllers/page-controller-delete.php [L]
 
 

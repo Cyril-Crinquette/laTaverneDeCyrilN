@@ -8,6 +8,7 @@ class Article
     //déclaration d’attributs spécifiques à la classe 'Article' ---------------------------
     private int $_id;
     private int $_id_users;
+    private int $_id_categories;
     private string $_title;
     private string $_content;
     private string $_publicated_at;
@@ -18,9 +19,10 @@ class Article
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(int $id_users = 0, string $title = '', string $content = '', string $publicated_at = '')
+    public function __construct(int $id_users = 0, int $id_categories = '', string $title = '', string $content = '', string $publicated_at = '')
     {
         $this->setIdUsers($id_users);
+        $this->setIdCategories($id_categories);
         $this->setTitle($title);
         $this->setContent($content);
         $this->setPublicatedAt($publicated_at);
@@ -38,6 +40,11 @@ class Article
     public function getIdUsers(): int
     {
         return $this->_id_users;
+    }
+
+    public function getIdCategories(): int
+    {
+        return $this->_id_categories;
     }
 
     /**
@@ -80,6 +87,10 @@ class Article
         $this->_id_users = $id_users;
     }
 
+    public function setIdCategories(int $id_categories): void
+    {
+        $this->_id_categories = $id_categories;
+    }
     /**
      * SETTER pour l'attribut privé _title
      * @param string $title
@@ -136,14 +147,15 @@ class Article
     public function save(){
         try {
             // On créé la requête avec des marqueurs nominatifs
-            $sql = 'INSERT INTO `articles` (`id_users`,`title`, `content`, `publicated_at`) 
-                    VALUES (:id_users, :title, :content, :publicated_at);';
+            $sql = 'INSERT INTO `articles` (`id_users`, `id_categories`,`title`, `content`, `publicated_at`) 
+                    VALUES (:id_users, :id_categories, :title, :content, :publicated_at);';
 
             // On prépare la requête
             $sth = Database::dbConnect()->prepare($sql);
 
             //Affectation des valeurs aux marqueurs nominatifs
             $sth->bindValue('id_users', $this->getIdUsers(), PDO::PARAM_INT);
+            $sth->bindValue('id_categories', $this->getIdCategories(), PDO::PARAM_INT);
             $sth->bindValue(':title', $this->getTitle(), PDO::PARAM_STR);
             $sth->bindValue(':content', $this->getContent(), PDO::PARAM_STR);
             $sth->bindValue(':publicated_at', $this->getPublicatedAt(), PDO::PARAM_STR);
@@ -186,11 +198,12 @@ class Article
     {
         try {
             $sql = 'UPDATE `articles` 
-                    SET `id_users` = :id_users, `title` = :title, `content` = :content, `publicated_at` = :publicated_at
+                    SET `id_users` = :id_users, `id_categories` = :id_categories, `title` = :title, `content` = :content, `publicated_at` = :publicated_at
                     WHERE `id` = :id';
 
             $sth = Database::dbConnect()->prepare($sql);
             $sth->bindValue('id_users', $this->getIdUsers(), PDO::PARAM_INT);
+            $sth->bindValue('id_categories', $this->getIdCategories(), PDO::PARAM_INT);
             $sth->bindValue(':title', $this->getTitle(), PDO::PARAM_STR);
             $sth->bindValue(':content', $this->getContent(), PDO::PARAM_STR);
             $sth->bindValue(':publicated_at', $this->getPublicatedAt(), PDO::PARAM_STR);
@@ -221,7 +234,7 @@ class Article
 
     public static function getAll():array{
         try {
-            $sql = 'SELECT `id`, `id_users`, `title`, `content`, `publicated_at` 
+            $sql = 'SELECT `id`, `id_users`, `id_categories`, `title`, `content`, `publicated_at` 
                     -- `content` AS `contentRemark`
                     FROM  `articles` 
                     -- JOIN `remarks` 

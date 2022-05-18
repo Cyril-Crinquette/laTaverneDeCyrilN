@@ -32,7 +32,7 @@
                 <?php if(empty($_SESSION["user"])){?>
                     <p id="userInt"> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
                 <?php } else {?>
-                    <div id="userPicture">fggufuf</div>
+                    <div id="userPicture"></div>
                     <p id="userInt"> <a href="/déconnexion">Déconnexion</a> </p>
                 <?php } ?>
                 </div>

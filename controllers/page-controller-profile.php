@@ -12,15 +12,14 @@ require_once dirname(__FILE__) . '/../models/User.php';
 $style = 'profile.css';
 $pageTitle = 'Profil';
 
+$id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+$user = User::getOne($id);
 $email= $_SESSION['user']->email;
-var_dump($_SESSION['user']);
-die;
-$user = User::getByEmail($email);
-    
+// var_dump($_SESSION['user']);
+// die;
 if ($user instanceof PDOException) {
     $error=$user->getMessage();
 }
-
 // Appel des vues
 include_once(dirname(__FILE__).'/../views/templates/header.php');
 include(dirname(__FILE__).'/../views/user/profile.php');

@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../models/User.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'inscription.css';
-$pageTitle = 'Inscription';
+$pageTitle = 'Deviens membre';
 
 # Appel des constantes et initialisation du tableau d'erreurs
 require_once(dirname(__FILE__).'/../config/constCategory.php');
@@ -79,7 +79,6 @@ if (empty($password)) {
             }
         }
     }
-}
 
 // Vérification de la photo de profil
 if (isset($_FILES['filePicture'])) {
@@ -100,7 +99,7 @@ if (isset($_FILES['filePicture'])) {
         }
     } 
 }
-
+}
 
 if(empty($errors)){
     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -114,9 +113,7 @@ if(empty($errors)){
     mail($email, 'Validation de votre inscription', $message);
 
 }
-
 }
-
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {

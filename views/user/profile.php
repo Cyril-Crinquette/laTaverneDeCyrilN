@@ -1,10 +1,24 @@
 <p>
     <?$error??''?>
 </p>
+
 <h6 class="text-center">
     <?=SessionFlash::display('message')?>
 </h6>
-<?php if(empty($error)) { 
+
+<?php
+if ($user->id_roles == 1 ) { ?>
+    <a href="/dash-board"><strong>
+    <p class="text-center">Envoi vers le dash board utilisateurs</p>
+</strong></a> 
+<a href="/dash-board-articles"><strong>
+    <p class="text-center">Envoi vers le dash board articles</p>
+</strong></a>
+<a href="/nouvel-article"><strong>
+    <p class="text-center">Créer un nouvel article</p>
+</strong></a>
+<?php }
+if(empty($error)) { 
     ?>
 <div class="text-center">
     <h5><?=$user->id;?></h5>
@@ -21,5 +35,5 @@
 <?php } ?>
 
 <a href="/modification-utilisateur?id=<?=$user->id;?>">
-    <h6>Modifier les informations</h6>
+    <h6 class="text-center">Modifier votre profil</h6>
 </a> <br>

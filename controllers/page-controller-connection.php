@@ -67,7 +67,7 @@ if(empty($errors)){
 // Si tout est OK on redirige l'utilisateur vers sa page de profil, il est désormais connecté
 if(empty($errors)){
     $_SESSION['user'] = $user;
-    header('location: /profil');
+    header('location: /profil?id='.$user->id);
 }
 
 }

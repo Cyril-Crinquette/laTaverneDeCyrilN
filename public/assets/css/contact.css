@@ -44,7 +44,13 @@ button{
     width: 90px;
 }
 
+#validMsg:hover{
+    transform: scale(1.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
 .back{
+    margin-bottom: 1em;
 
 }
 
@@ -73,10 +79,24 @@ button{
 } */
 
 @media screen and (min-width: 768px) {
+    body{
+        height:110%;
+    }
+
+    .text{
+        border: solid 0.1em rgb(235, 250, 234);
+        background-color: white;
+        color: black;
+    }
+
+    /* input{
+        color: green;
+    } */
     .back{
         display: flex;
         justify-content: flex-end;
         margin-right: 3.5em;
+        margin-bottom: 1em;
     }
 }
 

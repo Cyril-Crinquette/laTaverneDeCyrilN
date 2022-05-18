@@ -34,66 +34,32 @@
         </div>
     </div>
 </div> -->
+<h6 class="text-center">
+    <?=SessionFlash::display('message')?>
+</h6>
 
-<table width="100%">
+<table class="table">
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Pseudo</td>
-            <td>Email</td>
-            <td>Date de validation</td>
-            <td>Statut</td>
-            <td>Profil</td>
-            <td>Supprimer</td>
+            <th scope="col">Id</th>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date de validation</th>
+            <th scope="col">Profil</th>
+            <th scope="col">Suppression</th>
         </tr>
     </thead>
     <tbody>
-
-        <?php
-                foreach ($usersList as $profilUser) { ?>
-
+        <?php foreach ($usersList as $user) { ?>
         <tr>
-            <td class="people">
-                <img src="/public/assets/img/theMessenger.png" alt="image de profil">
-
-                <div class="people-de">
-                    <h5><?=strtoupper(($profilUser->id) )?></h5>
-                </div>
-            </td>
-
-            <td class="people-des">
-                <h5><?=$profilUser->pseudo?></h5>
-            </td>
-
-            <td class="people-des">
-                <h5><?=$profilUser->email?></h5>
-            </td>
-
-            <td class="active">
-                <?php 
-                            if (!is_null($profilUser->activated_at)) { ?>
-                <p>Actif</p>
-                <?php } else { ?>
-                <p class="inactif">inactif</p>
-                <?php } ?>
-            </td>
-
-
-            <td class="role">
-                <p>Admin</p>
-            </td>
-
-
-            <td class="edit"><a href="#">Modifier </a></td>
+            <td scope="col"><?=$user->id;?> </th>
+            <td scope="col"><?=$user->pseudo;?></td>
+            <td scope="col"><?=$user->email;?></td>
+            <td scope="col"><?=$user->validated_at;?></td>
+            <td scope="col"><a href="/profil?id=<?=$user->id?>"> Profil</a></td>
+            <td scope="col"><a href="/suppression?id=<?=$user->id?>">Supprimer</a>
         </tr>
-
         <?php } ?>
-
-
-
-
-
-
-
+        </tr>
     </tbody>
 </table>
