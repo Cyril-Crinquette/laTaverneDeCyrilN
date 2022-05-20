@@ -1,5 +1,5 @@
-<!-- ------------------- Page d'inscription contenant le formulaire d'inscription ----------------------------- -->
-<h1 id="mobileTitle" class="text-center"> Inscription </h1>
+<!-- ------------------- Page de modification du profil contenant le formulaire de modification du profil ----------------------------- -->
+<h1 id="mobileTitle" class="text-center"> Modification du profil </h1>
 <main>
     <div class="img">
         <img src="/public/assets/img/imgForm.jpg" alt="une photo de moi regardant l'objectif">
@@ -13,13 +13,6 @@
                 <div class="errors">
                     <?= $errors['pseudo'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée au pseudo si elle existe -->
-                </div>
-                <label for="email">Mail</label>
-                <input type="email" required name="email" id="email" value="<?=$user->email ?? ''?>">
-                <!-- Coallescente permettant de laisser affiché l'email s'il est correct -->
-                <div class="errors">
-                    <?= $errors['email'] ?? '' ?>
-                    <!-- Coallescente permettant d'afficher l'erreur liée à l'email si elle existe -->
                 </div>
                 <label for="password">Mot de passe</label>
                 <input type="password" required name="password" id="password" value="<?=$password ?? ''?>">
@@ -42,6 +35,10 @@
                     <?= $errors['filePicture'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
                 </div>
+                <label for="description">Description</label>
+                <textarea name="description" id="description"><?=$user->description ?? 'Il n\'existe pas de description pour cet utilisateur'?></textarea>
+                <div class="errors"><?= $errors['description'] ?? '' ?></div>
+                <!-- Coallescente permettant d'afficher l'erreur liée au contenu de l'article si elle existe -->
                 <input type="submit" value="S'inscrire">
             </div>
         </form>

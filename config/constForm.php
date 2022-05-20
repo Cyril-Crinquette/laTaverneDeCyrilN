@@ -14,7 +14,7 @@ define('REG_EXP_TIME', "^[0-9]{2}:[0-9]{2}$");
 define('REG_EXP_SEARCH', '[0-9a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð@. -]{0,100}');
 
 
-//-------------------------------------------- Autres constantes --------------------------------------------->
+//---------------------------------------------------------- Autres constantes ------------------------------------------------------------->
 
 define('AUTHORIZED_IMAGE_FORMAT', ['image/jpeg', 'image/png']);
 define('ARRAY_CATEGORIES', ['Deck-building', 'MetroidVania', 'Plate-forme', 'Tactical', 'Infiltration', 'Rogue-like', 'Survival-horror', 'Beat them all', 'Course', 'RPG', 'Aventure']);

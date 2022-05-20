@@ -1,2 +1,7 @@
-<h1> Merci pour votre attention </h1>
+<h1 id="mobileTitle" class="text-center"> Merci </h1>
 <p>Je répondrai à votre message dès que possible :)</p>
+<div class="text-center back">
+    <a href="/accueil">
+        <div>Retour au site</div>
+    </a>
+</div>

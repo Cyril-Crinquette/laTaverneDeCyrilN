@@ -19,7 +19,7 @@ class User
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(string $pseudo , string $email , string $password , string $description= '', int $id_roles =2, ?string $validated_at= '')
+    public function __construct(string $pseudo = '' , string $email = '' , string $password = '' , string $description= '', int $id_roles =2, ?string $validated_at= '')
     {
         $this->setPseudo($pseudo);
         $this->setEmail($email);
@@ -147,7 +147,7 @@ class User
             $sth = Database::dbConnect()->prepare($sql);
 
             //Affectation des valeurs aux marqueurs nominatifs
-            $sth->bindValue('id_roles', $this->getIdRoles(), PDO::PARAM_INT);
+            $sth->bindValue(':id_roles', $this->getIdRoles(), PDO::PARAM_INT);
             $sth->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
             $sth->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);

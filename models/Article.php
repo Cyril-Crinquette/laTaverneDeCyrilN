@@ -19,7 +19,7 @@ class Article
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(int $id_users = 0, int $id_categories = '', string $title = '', string $content = '', string $publicated_at = '')
+    public function __construct(int $id_users = 0, int $id_categories = 0, string $title = '', string $content = '', string $publicated_at = '')
     {
         $this->setIdUsers($id_users);
         $this->setIdCategories($id_categories);
@@ -122,7 +122,7 @@ class Article
     }
     //-----------------------------------------------------------------------------------------------
 
-    // Méthode isArticleExists permettant de vérifier l'existence d'un article ---------------
+    // Méthode isArticleExists permettant de vérifier l'existence d'un article à partir de son titre ---------------
 
     public static function isArticleExists(string $title): bool
     {
@@ -177,8 +177,8 @@ class Article
 
             $sth = Database::dbConnect()->prepare($sql);
             $sth->bindValue(':id', $id, PDO::PARAM_STR);
-            $result = $sth->execute();
-            $article = $result->fetch();
+            $sth->execute();
+            $article = $sth->fetch();
 
             if(!$article){
                 throw new PDOException('L\'article n\'a pas été trouvé');
@@ -194,7 +194,7 @@ class Article
 
     // Méthode update permettant de modifier un article à partir de son id--------------------------
 
-    public function update($id): mixed
+    public function update($id): bool
     {
         try {
             $sql = 'UPDATE `articles` 
@@ -234,12 +234,19 @@ class Article
 
     public static function getAll():array{
         try {
-            $sql = 'SELECT `id`, `id_users`, `id_categories`, `title`, `content`, `publicated_at` 
-                    -- `content` AS `contentRemark`
-                    FROM  `articles` 
-                    -- JOIN `remarks` 
-                    -- ON `users`.`id` = `remarks`.`id_users`
-                    ';
+            $sql = 'SELECT `articles`.`id`,
+                    `articles`.`id_users`,
+                    `articles`.`id_categories`,
+                    `articles`.`title`, 
+                    `articles`.`content`, 
+                    `articles`.`publicated_at`,
+                    `categories`.`name` AS `category`,
+                    `users`.`pseudo` AS `author` 
+                    FROM `articles` 
+                    JOIN `categories` 
+                    ON `articles`.`id_categories` = `categories`.`id` 
+                    JOIN `users` 
+                    ON `articles`.`id_users` = `users`.`id`';
             $sth = Database::dbconnect() -> prepare($sql);
             $verif = $sth -> execute();
             if (!$verif) {

@@ -17,6 +17,7 @@ $usersList = User::getAll();
 $email= $_SESSION['user']->email;
 $user = User::getByEmail($email);
 
+//On redirige l'utilisateur sur la page de bienvenue s'il n'a pas le statut d'administrateur
 if($user->id_roles != 1) { 
     header('location: /bienvenue');
     exit;

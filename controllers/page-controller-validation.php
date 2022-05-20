@@ -13,13 +13,12 @@ require_once dirname(__FILE__) . '/../models/User.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'validation.css';
-$pageTitle = 'Félicitations!';
+$pageTitle = 'Quête accomplie';
 
-$mail = trim(filter_input(INPUT_GET, 'email', FILTER_SANITIZE_EMAIL));
-
+$mail = trim(filter_input(INPUT_GET, 'mail', FILTER_SANITIZE_EMAIL));
 $userByMail = User::getByEmail($mail);
-
 $userByMail->validated_at = date('Y-m-d H:i:s'); 
+
 
 $user = new User($userByMail->pseudo, $userByMail->email, $userByMail->password, '', $userByMail->id_roles, $userByMail->validated_at);
 $user->update($userByMail->id);

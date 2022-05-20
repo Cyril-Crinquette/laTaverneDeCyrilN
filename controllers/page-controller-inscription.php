@@ -50,7 +50,7 @@ if (!empty($email)) {
         $errors['email'] = 'Ce mail existe déjà dans la taverne';
     }
 } else {
-    $error["email"] = "Veuillez rentrer une adresse mail";
+    $errors["email"] = "Veuillez rentrer une adresse mail";
 }
 
 // Vérification des mots de passe rentrés
@@ -62,10 +62,10 @@ if (empty($password)) {
     $errors['password'] = 'Veuillez saisir votre mot de passe';
 } else {
     if (empty($confirmPassword)) {
-    $errors['password'] = 'Veuillez confirmer votre mot de passe';
+    $errors['confirmPassword'] = 'Veuillez confirmer votre mot de passe';
     } else {
         if ($password != $confirmPassword) {
-            $errors['password'] = 'Veuillez saisir 2 fois le même mot de passe';
+            $errors['confirmPassword'] = 'Veuillez saisir 2 fois le même mot de passe';
         } else {
             $checkedPassword = filter_var(
                 $password,
@@ -123,7 +123,6 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/inscription.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
-    // Le footer général suffit pour la page d'inscription
-}  // Si des erreurs persistent, on renvoie l'utilisateur vers la page d'inscription, autant que nécessaire
+}  // Si des erreurs persistent, on laisse l'utilisateur vers la page d'inscription, autant que nécessaire
 
 

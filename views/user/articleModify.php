@@ -2,13 +2,13 @@
 <h1 id="mobileTitle" class="text-center"> Modification d'article </h1>
 <main>
     <div class="text">
-    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" novalidate>
+    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" method="post" novalidate>
             <div class="formDiv">
                 <select name="category" id="category" class="form-control">
-                    <option value="">Catégorie</option>
                     <?php foreach ($categoryList as $category) {
-                            $isSelected = ($category == $category) ? 'selected' : '';
-                            echo "<option value='$category->id'>$category->name</option>";
+                            $isSelected = isset($article) && ($category->id == $article->id_categories) ? 'selected' : '';
+                            echo '<option value="' . $category->id . '" ' .  $isSelected  . '>' . $category->name . '</option>';
+
                         } ?>
                 </select>
                 <div class="errors">
@@ -16,7 +16,7 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la catégorie si elle existe -->
                 </div>
                 <label for="title">Titre de l'article</label>
-                <input type="text" required name="title" id="title" value="<?=$title ?? ''?>">
+                <input type="text" required name="title" id="title" value="<?=$article->title ?? ''?>">
                 <!-- Coallescente permettant de laisser affiché le titre s'il est correct -->
                 <div class="errors">
                     <?= $errors['title'] ?? '' ?>
@@ -30,7 +30,7 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
                 </div>
                 <label for="content">Contenu de l'article</label>
-                <textarea name="content" id="content" value="<?=$content ?? ''?>"></textarea>
+                <textarea name="content" id="content"><?=$article->content ?? ''?></textarea>
                 <div class="errors"><?= $errors['content'] ?? '' ?></div>
                 <!-- Coallescente permettant d'afficher l'erreur liée au contenu de l'article si elle existe -->
                 <input type="submit" value="Publier">

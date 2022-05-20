@@ -13,7 +13,7 @@ $style = 'error.css';
 $pageTitle = 'Erreur';
 
 $msgError = "Vous n'êtes pas connecté à la base de données";
-$error = intval(filter_input(INPUT_GET, 'error', FILTER_SANITIZE_NUMBER_INT));
+// $error = intval(filter_input(INPUT_GET, 'error', FILTER_SANITIZE_NUMBER_INT));
 // switch ($error) {
 //     case 1:
 //         $msgError = "Vous n'êtes pas connecté à la base de données";

@@ -1,39 +1,6 @@
-<!------------------------------------------------------- Vue du dash board--------------------------------------------------------- -->
+<!------------------------------------------------------- Vue du dash board utilisateurs --------------------------------------------------------- -->
+<h1 id="mobileTitle" class="text-center"> Dash board utilisateurs </h1>
 
-
-<!-- <div class="values">
-    <div class="val-box">
-        <i class='bx bxs-invader bx-md'></i>
-        <div>
-            <h3> <?=$nbAdmins?></h3>
-            <span>Admin</span>
-        </div>
-    </div>
-
-    <div class="val-box">
-        <i class='bx bxs-group bx-md'></i>
-        <div>
-            <h3><?=$nbPartners?></h3>
-            <span>Partenaires</span>
-        </div>
-    </div>
-
-    <div class="val-box">
-        <i class='bx bxs-face bx-md'></i>
-        <div>
-            <h3><?=$nbUsers?></h3>
-            <span>clients</span>
-        </div>
-    </div>
-
-    <div class="val-box">
-        <i class='bx bxs-error-alt bx-md'></i>
-        <div>
-            <h3>0</h3>
-            <span>Bannis</span>
-        </div>
-    </div>
-</div> -->
 <h6 class="text-center">
     <?=SessionFlash::display('message')?>
 </h6>

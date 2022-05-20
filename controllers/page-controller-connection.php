@@ -77,4 +77,3 @@ include(dirname(__FILE__).'/../views/templates/header.php');
 include(dirname(__FILE__).'/../views/user/connection.php');
 // Si des erreurs persistent, l'utilisateur reste sur la page de connexion
 include(dirname(__FILE__).'/../views/templates/footer.php');
-// Le footer général suffit pour la page d'inscription

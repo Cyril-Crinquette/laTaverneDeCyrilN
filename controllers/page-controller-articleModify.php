@@ -18,17 +18,33 @@ $pageTitle = 'Modification d\'article';
 # Appel des constantes et initialisation du tableau d'erreurs
 // require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
-
 $errors=[];
+
+//On redirige l'utilisateur sur la page de bienvenue s'il n'a pas le statut d'administrateur
+if($_SESSION['user']->id_roles != 1) {
+    header('location: /bienvenue');
+    exit;
+}
+
+$categoryList = Category::getAll(); 
+$categoryId = [];
+foreach ($categoryList as $key => $value) {
+array_push($categoryId, $value->id);
+}
+
+if (!empty($_GET)) {
+    $id = intval(filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT));
+    $article = Article::getById($id);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 # Traitement des données
 
 // Catégorie
-$category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS));
+$category = intval(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_NUMBER_INT));
     if (!empty($category)) {
-        if (!in_array($category, $categoryList)) {
+        if (!in_array($category, $categoryId)) {
             $errors["category"] = "La catégorie entrée n'est pas valide!";
         }
     }
@@ -75,10 +91,17 @@ if(!empty($content)){
 } else {
     $errors["content"] = "Veuillez écrire votre article";
 }
+
+$id_users= $_SESSION['user']->id;
+$publicated_at= date('Y-m-d-H:i:s');
+
 }
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    // $id = intval(filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT));
+    $oneArticle = new Article($id_users, $category, $title, $content, $publicated_at);
+    $article = $oneArticle -> update($id);
         header('location: /dash-board-articles');
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'administrateur vers le dash board articles
 } else {

@@ -2,7 +2,7 @@
 <h1 id="mobileTitle" class="text-center"> Inscription </h1>
 <main>
     <div class="img">
-        <img src="/public/assets/img/imgForm.jpg" alt="une photo de moi regardant l'objectif">
+        <img src="/public/assets/img/imgForm.jpg" alt="les héros de jeux vidéo représentant les membres de la taverne">
     </div>
     <div class="text">
         <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" novalidate>

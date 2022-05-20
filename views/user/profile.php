@@ -1,6 +1,5 @@
-<p>
-    <?$error??''?>
-</p>
+
+<h1 id="mobileTitle" class="text-center">Profil </h1>
 
 <h6 class="text-center">
     <?=SessionFlash::display('message')?>
@@ -18,6 +17,7 @@ if ($user->id_roles == 1 ) { ?>
     <p class="text-center">Créer un nouvel article</p>
 </strong></a>
 <?php }
+
 if(empty($error)) { 
     ?>
 <div class="text-center">
@@ -32,8 +32,22 @@ if(empty($error)) {
 <div class="img">
     <img src="/public/assets/img/intoTheBreach.jpg" alt="image de profil de l'utilisateur">
 </div>
-<?php } ?>
+<?php }
 
-<a href="/modification-utilisateur?id=<?=$user->id;?>">
+if ($_SESSION['user']->id == $id) { ?>
+    <a href="/modification-utilisateur?id=<?=$user->id;?>">
     <h6 class="text-center">Modifier votre profil</h6>
-</a> <br>
+    </a> <br>
+<?php } 
+
+if ($_SESSION['user']->id == $id || $user->id_roles == 1) { ?>
+    <a href="/suppression?id=<?=$user->id?>">
+    <h6 class="text-center">Supprimer le profil</h6>
+    </a> <br>
+<?php } 
+
+
+
+
+
+

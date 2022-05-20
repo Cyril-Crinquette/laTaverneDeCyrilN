@@ -2,7 +2,7 @@
 
 <div class="container-fluid main">
     <div class="row">
-    <?php 
+        <?php 
     include(dirname(__FILE__).'/../templates/navbar.php');
     ?>
 
@@ -54,7 +54,7 @@
 
         <div class="thirdColumn col-12 col-md-2">
             <div>
-                <h4 class="text-center">Coups de coeur de l'année</h4>
+                <h4 class="text-center feelings">Coups de coeur de l'année</h4>
                 <!--------------------------------------------- Intégration du carroussel:coups de coeur ------------------------------------------------->
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
                     data-bs-interval="false">
@@ -85,9 +85,16 @@
                 </div>
             </div>
             <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
-            <a href="/contact">
-                <p id="contact"> Qui suis-je? Me contacter </p>
-            </a>
+            <div id="contact">
+                <a href="/contact">
+                    <p> Qui suis-je? Me contacter</p>
+                </a>
+            </div>
+            <div class="text-center back">
+                <a href="/accueil">
+                    <div>Retour au site</div>
+                </a>
+            </div>
         </div>
 
     </div>

@@ -17,8 +17,14 @@ $pageTitle = 'Création d\'article';
 # Appel des constantes et initialisation du tableau d'erreurs
 // require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
-
 $errors=[];
+
+//On redirige l'utilisateur sur la page de bienvenue s'il n'a pas le statut d'administrateur
+if($_SESSION['user']->id_roles != 1) {
+    header('location: /bienvenue');
+    exit;
+}
+
 $categoryList = Category::getAll(); 
 $categoryId= [];
 foreach ($categoryList as $key => $value) {
@@ -34,7 +40,6 @@ $category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CH
     if (!empty($category)) {
         if (!in_array($category, $categoryId)) {
             $errors["category"] = "La catégorie entrée n'est pas valide!";
-            var_dump($category);
         }
     }
 
@@ -81,23 +86,19 @@ if(!empty($content)){
     $errors["content"] = "Veuillez écrire votre article";
 }
 
-
 $id_users= $_SESSION['user']->id;
 $publicated_at= date('Y-m-d-H:i:s');
-$article = new Article($id_users, $title, $content, $publicated_at);
-$article->save();   
 
 }
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        header('location: /dash-board-articles');
+    $article = new Article($id_users, $category, $title, $content, $publicated_at);
+    $article->save();
+    header('location: /dash-board-articles');
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'administrateur vers le dash board articles
 } else {
     include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/createArticle.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
 }  // Si des erreurs persistent, on laisse l'administrateur vers la page de création d'article, autant que nécessaire
-
-

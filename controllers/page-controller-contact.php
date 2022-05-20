@@ -72,5 +72,4 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     include(dirname(__FILE__).'/../views/user/contact.php');
 } 
 include(dirname(__FILE__).'/../views/templates/footer.php');
-// La vue du footer de la page contact correspond au footer général
 

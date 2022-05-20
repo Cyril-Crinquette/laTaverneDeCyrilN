@@ -22,4 +22,3 @@ $pageTitle = $category->name;
     include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/category.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
-    // La vue du footer de la page category correspond au footer général

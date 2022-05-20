@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../models/User.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'confirmedMail.css';
-$pageTitle = 'Confirmation d\'envoi';
+$pageTitle = 'Bien joué!';
 
 // Appel des vues
 include(dirname(__FILE__).'/../views/templates/header.php');

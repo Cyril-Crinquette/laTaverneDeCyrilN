@@ -27,4 +27,3 @@ if(!empty($_GET)){
     include(dirname(__FILE__).'/../views/templates/header.php');
     include(dirname(__FILE__).'/../views/user/article.php');
     include(dirname(__FILE__).'/../views/templates/footer.php');
-    // La vue du footer de la page article correspond au footer général

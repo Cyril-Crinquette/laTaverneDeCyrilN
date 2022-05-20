@@ -3,7 +3,7 @@
     <div class="listNavMobile">
         <?php
                         foreach ($categories as $value) {
-                            echo '<div><a href="/category?id='.$value->name.'">'.$value->name.'</a></div>';
+                            echo '<div><a href="/category?id='.$value->id.'">'.$value->name.'</a></div>';
                         };
                     ?>
     </div>

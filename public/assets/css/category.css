@@ -8,16 +8,16 @@
     height: 100%;
 }
 
-.firstColumn {
-    background-color: blueviolet;
+/* .firstColumn {
 }
 
 .secondColumn {
-    background-color: chartreuse;
 }
 
 .thirdColumn {
-    background-color: cornflowerblue;
+} */
+.navCat, .feelings{
+    margin-top: 2em;
 }
 
 .imgDiv {
@@ -56,16 +56,27 @@
 
 @media screen and (min-width: 768px) {
 
-    .firstColumn {
-        background-color: blueviolet;
+    /* .firstColumn {
     }
 
     .secondColumn {
-        background-color: chartreuse;
+    } */
+
+    body{
+        height:305%;
     }
 
+    .categoryList{
+        border: solid white;
+        background-color: rgb(171,11,11);
+    }
+
+    .textContent{
+        border: solid white;
+        padding: 1em;
+    }
+    
     .thirdColumn {
-        background-color: cornflowerblue;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

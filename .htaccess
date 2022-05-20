@@ -61,4 +61,7 @@ RewriteRule ^dash-board-articles$ /controllers/page-controller-dashBoardArticles
 # /delete -> /controllers/page-controller-delete.php
 RewriteRule ^suppression$ /controllers/page-controller-delete.php [L]
 
+# /deleteArticle -> /controllers/page-controller-deleteArticle.php
+RewriteRule ^suppression-article$ /controllers/page-controller-deleteArticle.php [L]
+
 

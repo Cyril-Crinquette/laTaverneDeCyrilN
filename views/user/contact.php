@@ -20,7 +20,7 @@
                 <input type="text" required name="name" id="name" value="<?=$name ?? ''?>">
                 <div class="errors"><?= $errors['name'] ?? '' ?></div>
                 <label for="contactMe">Votre message</label>
-                <textarea name="contactMe" id="contactMe" value="<?=$contactMe ?? ''?>"></textarea>
+                <textarea name="contactMe" id="contactMe"><?=$contactMe ?? ''?></textarea>
                 <div class="errors"><?= $errors['contactMe'] ?? '' ?></div>
                 <button id="validMsg" type="submit">Soumettre</button>
             </form>
