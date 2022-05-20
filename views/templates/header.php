@@ -32,7 +32,11 @@
                 <?php if(empty($_SESSION["user"])){?>
                     <p id="userInt"> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
                 <?php } else {?>
-                    <div id="userPicture"></div>
+                    <a href="/profil?id=<?=$_SESSION['user']->id?>">
+                        <div id="userPicture">
+                            <img class="userImg" src="/public/assets/img/user/<?=$_SESSION['user']->id?>.jpg" alt="image de profil de l'utilisateur">
+                        </div>
+                    </a>
                     <p id="userInt"> <a href="/déconnexion">Déconnexion</a> </p>
                 <?php } ?>
                 </div>

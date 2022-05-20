@@ -16,7 +16,7 @@ $style = 'category.css';
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 $category = Category::getOne($id);
 $pageTitle = $category->name;
-
+$articlesCategory = Category::getArticlesById($id);
 
 // Appel des vues de la page category
     include(dirname(__FILE__).'/../views/templates/header.php');

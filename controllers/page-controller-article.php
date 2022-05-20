@@ -12,15 +12,25 @@ require_once dirname(__FILE__) . '/../models/Remark.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'article.css';
-$pageTitle = 'Article';
 
-// Appel de la constante "category"
-require_once(dirname(__FILE__).'/../config/constCategory.php');
+$id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+$article = Article::getById($id);
+$author = Article::getAuthor($id);
+$pageTitle = $article->title;
+$publicated_at= date('Y-m-d-H:i:s');
+$allRemarks = Article::getRemarksById($id);
 
-// Récupération du type titre de l'article dans le get
-if(!empty($_GET)){
-    $articleTitle = $_GET['articleTitle'];
-};
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
+if(!empty($content)){
+    $remark = new Remark($id, $author->id, $content, $publicated_at);    
+    $remark->save();
+    header('location: /article?id='.$article->id.'');
+    exit;
+}
+
+}
 
 
 // Appel des vues de la page article

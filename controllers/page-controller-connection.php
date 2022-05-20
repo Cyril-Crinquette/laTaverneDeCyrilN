@@ -68,6 +68,7 @@ if(empty($errors)){
 if(empty($errors)){
     $_SESSION['user'] = $user;
     header('location: /profil?id='.$user->id);
+    exit;
 }
 
 }

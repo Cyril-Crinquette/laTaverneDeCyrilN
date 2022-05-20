@@ -194,7 +194,7 @@ class Article
 
     // Méthode update permettant de modifier un article à partir de son id--------------------------
 
-    public function update($id): bool
+    public function update(int $id): bool
     {
         try {
             $sql = 'UPDATE `articles` 
@@ -219,7 +219,7 @@ class Article
 
     // Méthode delete permettant de supprimer un article --------------------------------------------------
 
-    public static function delete($id):bool{
+    public static function delete(int $id):bool{
         $sql = 'DELETE FROM `articles`
                 WHERE `articles`.`id` = :id';
         $sth = Database::dbconnect() -> prepare($sql);
@@ -261,4 +261,60 @@ class Article
     }
     //-----------------------------------------------------------------------------------------------------
 
+    // Méthode getAuthor permettant de récupérer l'auteur d'un article avec l'id de l'article ------------------------
+
+    public static function getAuthor(int $id):object{
+        try {
+            $sql = 'SELECT * 
+                    FROM `users` 
+                    JOIN `articles` 
+                    ON `users`.`id` = `articles`.`id_users` 
+                    WHERE `users`.`id` = `articles`.`id_users`';
+            $sth = Database::dbconnect() -> prepare($sql);
+            $sth -> bindValue(':id', $id, PDO::PARAM_INT);
+            $verif = $sth -> execute();
+            if (!$verif) {
+                throw new PDOException('La requête n\'a pas été exécutée');
+            } else {
+                $author = $sth -> fetch();
+            }
+        } catch (PDOException $e) {
+            return $e;   
+        }
+        return $author;
+    }
+    //-----------------------------------------------------------------------------------------------------
+
+    // Méthode getRemarksById permettant d'obtenir les commentaires d'un article ---------------------------
+
+    public static function getRemarksById(int $id):array{
+        try {
+            $sql = 'SELECT    
+                    `remarks`.`id`, 
+                    `remarks`.`content`, 
+                    `remarks`.`publicated_at`,
+                    `remarks`.`archived_at`, 
+                    `remarks`.`id_articles`, 
+                    `remarks`.`id_users`, 
+                    `users`.`pseudo` AS `author` 
+                    FROM `remarks` 
+                    JOIN `articles` 
+                    ON `remarks`.`id_articles` = `articles`.`id` 
+                    JOIN `users` 
+                    ON `remarks`.`id_users` = `users`.`id`
+                    WHERE `remarks`.`id_articles` = :id';
+            $sth = Database::dbconnect() -> prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_STR);
+            $verif = $sth -> execute();
+            if (!$verif) {
+                throw new PDOException('La requête n\'a pas été exécutée');
+            } else {
+                $all = $sth -> fetchAll();
+            }
+        } catch (PDOException $e) {
+            return [];   
+        }
+        return $all;
+    }
+    //-----------------------------------------------------------------------------------------------------
 }

@@ -9,46 +9,36 @@
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> <?=$category->name?> </h1>
-                <div class="imgDiv">
-                    <img src="/public/assets/img/<?php 
-            if($_GET['categoryTheme'] = $categories->title){
-                echo $categories['img'];
-            }
-            ?>">
-                    <!-- <img src="img" href="/category?categoryTheme=<?php //echo $category->img?>"
-                        alt="image de la catégorie en cours"> -->
+                <div id="imgCategory">
+                    <img src="/public/assets/img/category/<?=$category->id?>.jpg" alt="image illustrant la catégorie">
                 </div>
                 <div>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
                         facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                        dignissimos officia nihil, fuga quod non. Error!</p>
+                        dignissimos officia nihil, fuga quod non. Error! <br>
+                        Un paragraphe qui explique quelle est cette catégorie
+                    </p>
                 </div>
-                <div class="container ">
-                    <div class="row ">
-                        <div class="articlesCategory">
-                            <?php foreach ($articles as $value) { ?>
-                            <a href="/article?articleTitle=<?php echo $value->title?>">
-                                <div class="col-11 col-md-5 col-lg-3">
-                                    <div class="card h-100">
-                                        <?='<img src="/public/assets/img/'.$value->img. '"class="card-img-top" alt="image de l\'article">' ?>
-                                        <div class="card-body">
-                                            <h5 class="card-title"><?php echo $value->title?></h5>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted"><?php echo $value->year?></small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <?php
-            }
-            ?>
-                        </div>
 
-                    </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <?php foreach ($articlesCategory as $value) { 
+                        echo '<a href="/article?id='.$value->id.'">' ?>
+                        <div class="col">
+                            <div class="card">
+                                <img src="/public/assets/img/article/<?=$value->id?>.jpg" class="card-img-top" alt="image de l'article">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?=$value->title?></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <?php 
+                }
+                ?>
+
                 </div>
             </div>
-
 
         </div>
 
@@ -88,11 +78,6 @@
             <div id="contact">
                 <a href="/contact">
                     <p> Qui suis-je? Me contacter</p>
-                </a>
-            </div>
-            <div class="text-center back">
-                <a href="/accueil">
-                    <div>Retour au site</div>
                 </a>
             </div>
         </div>

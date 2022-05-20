@@ -37,6 +37,15 @@ RewriteRule ^profil$ /controllers/page-controller-profile.php [L]
 # /createArticle -> /controllers/createArticle-controller.php
 RewriteRule ^nouvel-article$ /controllers/page-controller-createArticle.php [L]
 
+# /createRemark -> /controllers/createRemark-controller.php
+RewriteRule ^nouveau-commentaire$ /controllers/page-controller-createRemark.php [L]
+
+# /remarkModify -> /controllers/remarkModify-controller.php
+RewriteRule ^modification-commentaire$ /controllers/page-controller-remarkModify.php [L]
+
+# /deleteRemark -> /controllers/page-controller-deleteRemark.php
+RewriteRule ^suppression-commentaire$ /controllers/page-controller-deleteRemark.php [L]
+
 # /userModify -> /controllers/userModify-controller.php
 RewriteRule ^modification-utilisateur$ /controllers/page-controller-userModify.php [L]
 

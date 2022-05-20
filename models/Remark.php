@@ -18,7 +18,7 @@ class Remark
 
     //MAGIC METHOD CONSTRUCT----------------------------------------------------------------
 
-    public function __construct(int $id_articles = '', int $id_users = '', string $content = '', string $publicated_at = '')
+    public function __construct(int $id_articles = 0, int $id_users = 0, string $content = '', string $publicated_at = '')
     {
         $this->setIdArticles($id_articles);
         $this->setIdUsers($id_users);
@@ -140,7 +140,7 @@ class Remark
             $sth = Database::dbConnect()->prepare($sql);
 
             //Affectation des valeurs aux marqueurs nominatifs
-            $sth->bindValue(':title', $this->getIdArticles(), PDO::PARAM_INT);
+            $sth->bindValue(':id_articles', $this->getIdArticles(), PDO::PARAM_INT);
             $sth->bindValue('id_users', $this->getIdUsers(), PDO::PARAM_INT);
             $sth->bindValue(':content', $this->getContent(), PDO::PARAM_STR);
             $sth->bindValue(':publicated_at', $this->getPublicatedAt(), PDO::PARAM_STR);

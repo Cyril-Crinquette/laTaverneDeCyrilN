@@ -82,5 +82,36 @@ class Category{
     }
     //-----------------------------------------------------------------------------------------------------
 
+    // Méthode getArticlesById permettant d'obtenir les articles d'une catégorie ------------------------
+
+    public static function getArticlesById(int $id):array{
+        try {
+            $sql = 'SELECT    
+                    `articles`.`id`, 
+                    `articles`.`title`, 
+                    `articles`.`content`, 
+                    `articles`.`publicated_at`,
+                    `users`.`pseudo` AS `author` 
+                    FROM `articles` 
+                    JOIN `categories` 
+                    ON `articles`.`id_categories` = `categories`.`id` 
+                    JOIN `users` 
+                    ON `articles`.`id_users` = `users`.`id`
+                    WHERE `categories`.`id` = :id';
+            $sth = Database::dbconnect() -> prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_STR);
+            $verif = $sth -> execute();
+            if (!$verif) {
+                throw new PDOException('La requête n\'a pas été exécutée');
+            } else {
+                $all = $sth -> fetchAll();
+            }
+        } catch (PDOException $e) {
+            return [];   
+        }
+        return $all;
+    }
+    //-----------------------------------------------------------------------------------------------------
+
 }
 

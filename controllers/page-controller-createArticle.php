@@ -67,8 +67,7 @@ if (isset($_FILES['filePicture'])) {
             } else {
                 $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
                 $from = $filePicture['tmp_name'];
-                $fileName = uniqid('img_').'.'.$extension;
-                $to = dirname(__FILE__).'/../public/uploads/'.$fileName;
+                $to = dirname(__FILE__).'/../public/assets/img/article/'.$id.'jpg';
                 move_uploaded_file($from, $to);
             }
         }

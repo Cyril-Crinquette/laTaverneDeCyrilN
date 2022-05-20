@@ -92,8 +92,7 @@ if (isset($_FILES['filePicture'])) {
             } else {
                 $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
                 $from = $filePicture['tmp_name'];
-                $fileName = uniqid('img_').'.'.$extension;
-                $to = dirname(__FILE__).'/../public/uploads/'.$fileName;
+                $to = dirname(__FILE__).'/../public/assets/img/user/'.$id.'jpg';
                 move_uploaded_file($from, $to);
             }
         }
@@ -118,6 +117,7 @@ if(empty($errors)){
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         header('location: /envoi');
+        exit;
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'utilisateur vers la page de confirmation d'envoi de mail
 } else {
     include(dirname(__FILE__).'/../views/templates/header.php');

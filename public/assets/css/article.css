@@ -1,0 +1,142 @@
+/* ----------------RESPONSIVE MOBILE-------------- */
+
+.main>.row {
+    height: 100%;
+}
+
+.contentMiddle {
+    height: 100%;
+}
+
+#imgCategory{
+    display:flex;
+    width: 30%;
+    height: 30%;
+}
+
+#imgCategory>img{
+    object-fit:cover;
+}
+
+.card{
+    color:black;
+}
+/* .firstColumn {
+}
+
+.secondColumn {
+}
+
+.thirdColumn {
+} */
+.navCat, .feelings, .contentMiddle{
+    margin-top: 2em;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.imgDiv>img {
+    width: 90%;
+}
+
+/* .articlesCategory{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+} */
+
+/* .articlesCategory>div{
+    margin: 20px 10px;
+} */
+
+
+@media screen and (max-width: 768px) {
+    #contact {
+        font-size: larger;
+        text-align: center;
+        margin: 1.5em;
+    }
+
+}
+
+/* --------------------------------------------------- */
+
+/* -------------------RESPONSIVE PC------------------- */
+
+@media screen and (min-width: 768px) {
+
+    /* .firstColumn {
+    }
+
+    .secondColumn {
+    } */
+
+    body{
+        height:110%;
+    }
+
+    .categoryList{
+        border: solid white;
+        background-color: rgb(171,11,11);
+    }
+
+    .textContent{
+        border: solid white;
+        padding: 1em;
+    }
+    
+    .thirdColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #contact {
+        margin-left: 3em;
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+/*--------------------- Modale--------------------- */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 3;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */

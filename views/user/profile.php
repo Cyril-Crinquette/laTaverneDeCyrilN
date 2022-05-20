@@ -30,7 +30,7 @@ if(empty($error)) {
     <p><?=$user->description;?></p>
 </div>
 <div class="img">
-    <img src="/public/assets/img/intoTheBreach.jpg" alt="image de profil de l'utilisateur">
+    <img src="/public/assets/img/user/<?=$user->id?>.jpg" alt="image de profil de l'utilisateur">
 </div>
 <?php }
 

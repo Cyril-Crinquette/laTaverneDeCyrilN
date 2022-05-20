@@ -16,9 +16,9 @@ $pageTitle = 'La taverne de Cyril';
 // require_once(dirname(__FILE__).'/../config/constCategory.php');
 
 // Récupération du type de catégorie choisi dans le get
-if(!empty($_GET)){
-    $category = $_GET['categoryTheme'];
-};
+// if(!empty($_GET)){
+//     $category = $_GET['categoryTheme'];
+// };
 
 // Appel des vues de l'accueil
 include(dirname(__FILE__).'/../views/templates/header.php');
