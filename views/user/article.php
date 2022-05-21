@@ -1,6 +1,5 @@
 <!------------------ ----------------------- Vue de la page article ------------------------------------------- -->
 
-<!-- VUE NON DEFINITIVE, A MODIFIER ULTERIEUREMENT -->
 <div class="container-fluid main">
     <div class="row">
     <?php 
