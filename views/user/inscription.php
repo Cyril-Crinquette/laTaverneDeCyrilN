@@ -1,11 +1,11 @@
 <!-- ------------------- Page d'inscription contenant le formulaire d'inscription ----------------------------- -->
-<h1 id="mobileTitle" class="text-center"> Inscription </h1>
+<h1 id="mobileTitle" class="text-center"> Deviens membre </h1>
 <main>
     <div class="img">
         <img src="/public/assets/img/imgForm.jpg" alt="les héros de jeux vidéo représentant les membres de la taverne">
     </div>
     <div class="text">
-        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" novalidate>
+        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" enctype="multipart/form-data" novalidate>
             <div class="formDiv">
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" required name="pseudo" id="pseudo" value="<?=$pseudo ?? ''?>">
@@ -37,7 +37,7 @@
                 </div>
                 <label for="filePicture">Télécharger votre photo :</label>
                 <input class="form-control" type="file" id="filePicture" aria-describedby="filePictureHelp"
-                    placeholder="Photo de profil" accept="image/png, image/jpeg" name="filePicture">
+                    placeholder="Photo de profil" accept="image/jpeg" name="filePicture">
                 <div class="errors">
                     <?= $errors['filePicture'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->

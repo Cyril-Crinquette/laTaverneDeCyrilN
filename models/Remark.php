@@ -138,10 +138,9 @@ class Remark
 
             // On prépare la requête
             $sth = Database::dbConnect()->prepare($sql);
-
             //Affectation des valeurs aux marqueurs nominatifs
             $sth->bindValue(':id_articles', $this->getIdArticles(), PDO::PARAM_INT);
-            $sth->bindValue('id_users', $this->getIdUsers(), PDO::PARAM_INT);
+            $sth->bindValue(':id_users', $this->getIdUsers(), PDO::PARAM_INT);
             $sth->bindValue(':content', $this->getContent(), PDO::PARAM_STR);
             $sth->bindValue(':publicated_at', $this->getPublicatedAt(), PDO::PARAM_STR);
             // On retourne directement true si la requête s'est bien exécutée ou false dans le cas contraire
@@ -214,6 +213,29 @@ class Remark
     }
     //-----------------------------------------------------------------------------------------------------
 
+    // Méthode getAuthor permettant de récupérer l'auteur d'un commentaire avec l'id du commentaire ------------------------
+
+    public static function getAuthor(int $id):object{
+        try {
+            $sql = 'SELECT * 
+                    FROM `users` 
+                    JOIN `remarks` 
+                    ON `users`.`id` = `remarks`.`id_users` 
+                    WHERE `users`.`id` = :id';
+            $sth = Database::dbconnect() -> prepare($sql);
+            $sth -> bindValue(':id', $id, PDO::PARAM_INT);
+            $verif = $sth -> execute();
+            if (!$verif) {
+                throw new PDOException('La requête n\'a pas été exécutée');
+            } else {
+                $author = $sth -> fetch();
+            }
+        } catch (PDOException $e) {
+            return $e;   
+        }
+        return $author;
+    }
+    //-----------------------------------------------------------------------------------------------------
     // Méthode getAll permettant d'obtenir les informations de tous les commentaires ------------------------
 
     public static function getAll():array{
@@ -235,3 +257,6 @@ class Remark
     }
     //-----------------------------------------------------------------------------------------------------
 }
+
+
+// SELECT articles.id as articleId, articles.title as articleTitle, articles.content as articleContent, articles.publicated_at as articlePublicatedAt, author.pseudo as userPseudoAuthor, remarksAuthor.pseudo as userPseudoRemark, author.id as userAuthorId, remarksAuthor.id as userRemarkId, remarks.id as idRemark, remarks.content as contentRemark, remarks.actived as statusRemark, remarks.publicated_at as remarkPublicatedAt FROM `articles` JOIN users AS author ON author.id = articles.id_users JOIN remarks ON remarks.id_articles = articles.id JOIN users AS remarksAuthor ON remarksAuthor.id = remarks.id_users;

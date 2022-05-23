@@ -1,6 +1,5 @@
 <!------------------------------------------ Ecran de bienvenue ------------------------------------------------->
 <!------------------ -------------------------- Header de bienvenue -------------------------------------------------- -->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,19 +15,15 @@
 </head>
 <!-- ----------------------------------------------------------------------------------------------------------- -->
 <!------------------ -------------------------- Vue de bienvenue -------------------------------------------------- -->
-
 <body>
-
 <div class="text-center">
     <h1>Bienvenue dans la taverne de Cyril</h1>
 </div>
-
 <div id="enterButton">
     <a href="/accueil"><button class="enter" type="button">Entrer</button></a>
 </div>
 <!-- ----------------------------------------------------------------------------------------------------------- -->
 <!-------------------------------------------------- Footer de bienvenue --------------------------------------------------- -->
-
 <!-- Sur la page de bienvenue, il n'est pas nécessaire de charger de fichier javascript ni d'utiliser le lien cdn js de bootstrap -->
 </body>
 </html>

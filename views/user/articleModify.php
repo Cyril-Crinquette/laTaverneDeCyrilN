@@ -2,7 +2,7 @@
 <h1 id="mobileTitle" class="text-center"> Modification d'article </h1>
 <main>
     <div class="text">
-    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" method="post" novalidate>
+    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" enctype="multipart/form-data" method="post" novalidate>
             <div class="formDiv">
                 <select name="category" id="category" class="form-control">
                     <?php foreach ($categoryList as $category) {
@@ -24,7 +24,7 @@
                 </div>
                 <label for="filePicture">Télécharger l'image de l'article</label>
                 <input class="form-control" type="file" id="filePicture" aria-describedby="filePictureHelp"
-                    placeholder="Photo de profil" accept="image/png, image/jpeg" name="filePicture">
+                    placeholder="Photo de profil" accept="image/jpeg" name="filePicture">
                 <div class="errors">
                     <?= $errors['filePicture'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->

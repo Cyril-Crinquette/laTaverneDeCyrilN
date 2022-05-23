@@ -20,18 +20,19 @@ $pageTitle = $article->title;
 $publicated_at= date('Y-m-d-H:i:s');
 $allRemarks = Article::getRemarksById($id);
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
+
 if(!empty($content)){
-    $remark = new Remark($id, $author->id, $content, $publicated_at);    
+    $remark = new Remark($id, $_SESSION['user']->id, $content, $publicated_at); 
     $remark->save();
-    header('location: /article?id='.$article->id.'');
+    header('location: /article?id='.$article->id);
     exit;
 }
 
 }
-
 
 // Appel des vues de la page article
     include(dirname(__FILE__).'/../views/templates/header.php');

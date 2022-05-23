@@ -25,14 +25,19 @@ $password = $_POST['password'];
 
 # Traitement des données
 // Mail
-if (!empty($email)) {
-    $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
-    if (!$testEmail) {
-        $errors["email"] = "L'adresse email n'est pas au bon format";
-    }
+if ($user instanceof PDOException) {
+    $errors['email'] = 'Votre email n\'existe pas';
 } else {
-    $errors["email"] = "Veuillez rentrer une adresse mail";
+    if (!empty($email)) {
+        $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if (!$testEmail) {
+            $errors["email"] = "L'adresse email n'est pas au bon format";
+        }
+    } else {
+        $errors["email"] = "Veuillez rentrer une adresse mail";
+    }
 }
+
 
 // Vérification du mot de passe rentré
 // if (empty($password)) {
@@ -48,18 +53,23 @@ if (!empty($email)) {
 //             } 
 //         }
 
+
+
 // Vérification du mot de passe rentré
-if(empty($errors)){
-    $passwordHash = $user->password;
-    $result = password_verify($password, $passwordHash);
-
-    if(!$result){
-        $errors['password'] = 'Mot de passe invalide';
+if(!empty($password)){
+    if (isset($user)) {
+        $passwordHash = $user->password;
+        $result = password_verify($password, $passwordHash);
+        if(!$result){
+            $errors['password'] = 'Mot de passe invalide';
+        }
+        if(is_null($user->validated_at)){
+            $errors['password'] = 'Votre compte n\'est pas encore activé';
+        }
+    }else {
+        $errors['password'] = 'L\'adresse mail n\'a pas été reconnue dans la base de données';
     }
-
-    if(is_null($user->validated_at)){
-        $errors['password'] = 'Votre compte n\'est pas encore activé';
-    }
+    
 } else {
     $errors['password'] = 'Veuillez rentrer votre mot de passe';
 }

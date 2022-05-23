@@ -8,7 +8,7 @@
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
                 <div class="imgDiv">
-                    <img src="/public/assets/img/slayTheSpire.jpeg" alt="image du jeu Slay the Spire">
+                    <img src="/public/assets/img/slayTheSpire.jpg" alt="image du jeu Slay the Spire">
                 </div>
                 <div class= "textContent">
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus

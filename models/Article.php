@@ -269,7 +269,7 @@ class Article
                     FROM `users` 
                     JOIN `articles` 
                     ON `users`.`id` = `articles`.`id_users` 
-                    WHERE `users`.`id` = `articles`.`id_users`';
+                    WHERE `articles`.`id` = :id';
             $sth = Database::dbconnect() -> prepare($sql);
             $sth -> bindValue(':id', $id, PDO::PARAM_INT);
             $verif = $sth -> execute();
@@ -277,11 +277,14 @@ class Article
                 throw new PDOException('La requête n\'a pas été exécutée');
             } else {
                 $author = $sth -> fetch();
+
+
             }
         } catch (PDOException $e) {
-            return $e;   
+            return $e;
         }
         return $author;
+
     }
     //-----------------------------------------------------------------------------------------------------
 

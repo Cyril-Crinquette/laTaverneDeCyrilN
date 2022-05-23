@@ -5,6 +5,16 @@
 // Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données etc..
 require_once dirname(__FILE__) . '/../utils/init.php';
 
+// lance les classes de PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once(dirname(__FILE__) . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php'); //
+require_once(dirname(__FILE__) . '/../vendor/phpmailer/phpmailer/src/Exception.php'); //
+require_once(dirname(__FILE__) . '/../vendor/phpmailer/phpmailer/src/SMTP.php'); //
+//Pour appeler le fichier autoloader
+require_once(dirname(__FILE__) . '/../vendor/autoload.php'); //
+
 // Appel des modèles nécessaires dans le controller
 require_once dirname(__FILE__) . '/../models/User.php';
 
@@ -58,6 +68,30 @@ if(!empty($contactMe)){
 } else {
     $errors["contactMe"] = "Veuillez rentrer votre message";
 }
+
+if (empty($errors)){
+    $mail = new PHPMailer(true);
+    
+        $mail -> SMTPDebug  =  0 ;    
+        $mail -> isSMTP();
+        $mail->Host = "smtp.ionos.com";
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'TSL';   
+        $mail->SMTPAuth = true;
+        $mail->Username = "contact@nadirbensalah.fr";    
+        $mail->Password = "***********";                                    
+        $mail->setFrom($email, $name);           
+        
+        $mail->addAddress($email);
+        
+        $mail->isHTML(true);                                  
+        $mail->Subject = ucwords($subject) ;
+        $mail->Body    = $message;
+        
+        $request= $mail->send();
+    
+}
+
 }
 
 // Appel des vues de la page contact 

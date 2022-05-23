@@ -40,10 +40,16 @@ $pageTitle = 'Modification du profil';
         $user = User::getOne($id);
     }
     
-    $email=$user->email;
-    $validated_at=$user->validated_at;
-    $id_roles=$user->id_roles;
+    $email = $user->email;
+    $validated_at = $user->validated_at;
+    $pseudo = $user->pseudo;
+    $password = $user->password;
+    $description = $user->description;
+    // $id_roles=$user->id_roles;
+    $id_roles= $_SESSION['user']->id_roles;
 
+
+    
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     # Traitement des données
@@ -63,9 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
-    if (empty($password)) {
-        $errors['password'] = 'Veuillez saisir votre mot de passe';
-    } else {
+    if (!empty($password)) {
         if (empty($confirmPassword)) {
             $errors['password'] = 'Veuillez confirmer votre mot de passe';
         } else {
@@ -84,6 +88,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
+    } else {
+    $securedPassword= $_SESSION['user']->password;
+    }
 
         // Vérification de la photo de profil
         if (isset($_FILES['filePicture'])) {
@@ -98,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $extension = pathinfo($filePicture['name'], PATHINFO_EXTENSION);
                         $from = $filePicture['tmp_name'];
                         $fileName = uniqid('img_') . '.' . $extension;
-                        $to = dirname(__FILE__) . '/../public/uploads/' . $fileName;
+                        $to = dirname(__FILE__).'/../public/assets/img/user/'.$id.'.jpg';
                         move_uploaded_file($from, $to);
                     }
                 }
@@ -110,12 +117,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($description)) {
             $description = '';
         } else {
-            $checkContent = filter_var($description, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
-        if (!$checkContent) {
+            $description = filter_var($description, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
+        if (!$description) {
             $errors["description"] = "Veuillez saisir des caractères valides pour votre description";
         }
-        }
     }
+
+    if(empty($errors)) {
+        $oneUser = new User($pseudo, $email, $securedPassword, $description, $id_roles, $validated_at);
+        $user = $oneUser->update($id);
+    }
+}
 
     // if(empty($errors)){
     //     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -129,19 +141,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     mail($email, 'Validation de votre inscription', $message);
     // }
 
-    if(empty($errors)) {
-        $oneUser = new User($pseudo, $email, $password, $description, $id_roles, $validated_at);
-        $user = $oneUser->update($id);
-    }
     
-}
+    
+
 
 
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    // $id = intval(filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT));
-    header('location: /profil?id='.$user->id);
+    $id = intval(filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT));
+    header('location: /profil?id='.$id);
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on renvoie l'utilisateur vers sa page de profil
 } else {
     include(dirname(__FILE__) . '/../views/templates/header.php');

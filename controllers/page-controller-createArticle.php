@@ -18,6 +18,8 @@ $pageTitle = 'Création d\'article';
 // require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
 $errors=[];
+$id_users= $_SESSION['user']->id;
+$publicated_at= date('Y-m-d-H:i:s');
 
 //On redirige l'utilisateur sur la page de bienvenue s'il n'a pas le statut d'administrateur
 if($_SESSION['user']->id_roles != 1) {
@@ -55,25 +57,6 @@ if(!empty($title)){
     $errors['title'] = 'Vous devez choisir un titre';
 }
 
-// Vérification de la photo de l'article
-if (isset($_FILES['filePicture'])) {
-    $filePicture = $_FILES['filePicture'];
-    if(!empty($filePicture['tmp_name'])){
-        if($filePicture['error']>0){
-            $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
-        } else {
-            if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
-                $errors["filePicture"] = "Le format du fichier n'est pas accepté";
-            } else {
-                $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
-                $from = $filePicture['tmp_name'];
-                $to = dirname(__FILE__).'/../public/assets/img/article/'.$id.'jpg';
-                move_uploaded_file($from, $to);
-            }
-        }
-    } 
-}
-
 // Contenu de l'article
 $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
 if(!empty($content)){
@@ -85,15 +68,43 @@ if(!empty($content)){
     $errors["content"] = "Veuillez écrire votre article";
 }
 
-$id_users= $_SESSION['user']->id;
-$publicated_at= date('Y-m-d-H:i:s');
+if (empty($errors)) {
+    $article = new Article($id_users, $category, $title, $content, $publicated_at);
+    $article->save();
+    $id = $article->id;
+}
+
+// Vérification de la photo de l'article
+if (isset($_FILES['filePicture'])) {
+
+    $filePicture = $_FILES['filePicture'];
+    if(!empty($filePicture['tmp_name'])){
+
+        if($filePicture['error']>0){
+            $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
+        } else {
+
+            if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
+                $errors["filePicture"] = "Le format du fichier n'est pas accepté";
+            } else {
+
+                $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
+                $from = $filePicture['tmp_name'];
+                $to = dirname(__FILE__).'/../public/assets/img/article/'.$id.'.jpg';
+                $result = move_uploaded_file($from, $to);
+            }
+        }
+    } 
+}
+
+
 
 }
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    $article = new Article($id_users, $category, $title, $content, $publicated_at);
-    $article->save();
+    // $article = new Article($id_users, $category, $title, $content, $publicated_at);
+    // $article->save();
     header('location: /dash-board-articles');
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'administrateur vers le dash board articles
 } else {

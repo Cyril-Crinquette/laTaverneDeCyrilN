@@ -2,7 +2,7 @@
 
 <div class="container-fluid main">
     <div class="row">
-    <?php 
+        <?php 
     include(dirname(__FILE__).'/../templates/navbar.php');
     ?>
 
@@ -18,24 +18,22 @@
                 <p class="card-text">Publié le <?=$article->publicated_at?> par <?=$author->pseudo?> </p>
 
                 <?php if(!empty($_SESSION['user'])) { ?>
-                    <a href="">
-                        <p id="addRemark">
-                            Ajouter un commentaire
-                        </p>
-                    </a>
+                <p id="addRemark">
+                    Ajouter un commentaire
+                </p>
                 <?php } ?>
-                
-                
+
+
 
                 <div class="remark">
                     Ici seront affichés les différents commentaires liés à l'article
                     <?php
                     foreach ($allRemarks as $remark) { ?>
-                        <p><?=$remark->content?></p>
-                        <p><?=$remark->publicated_at?> par <?=$author->pseudo?></p> <br><br><br>
+                    <p><?=$remark->content?></p>
+                    <p><?=$remark->publicated_at?> par <?=$remark->author?></p> <br><br><br>
                     <?php }
                     ?>
-                    
+
                 </div>
             </div>
 
@@ -85,45 +83,18 @@
 <!------------------------------------------------  Modale de commentaires  ------------------------------------------------------------ ------------>
 
 <div id="modal" class="modal">
-    <form class="modal-content" action="/article" method="post">
-        <div class="headContainer">
-            <span id="close" class="close" title="Close Modal">&times;</span>
-            <h1>Ecrire un commentaire</h1>
-        </div>
-
-        <div class="container">
+<form class="modal-content" action="/article?id=<?=$article->id?>" method="post">
+    <div class="headContainer">
+        <span id="close" class="close" title="Close Modal">&times;</span>
+        <h1>Ecrire un commentaire</h1>
+    </div>
+    <div class="container">
             <label for="uname"><b>Ecrire</b></label>
             <textarea name="content" id="remarkCont" cols="30" rows="10"></textarea>
-
             <button type="submit" id="connect">Poster</button>
-        </div>
-
+        </form>
+    </div>
     </form>
 </div>
 <!-- ------------------------------------------------------------------------------------------------------------------------ -------------------------->
 
-<!-- <div id="modal" class="modal">
-    <form class="modal-content" action="" method="post">
-        <div class="headContainer">
-            <span id="close" class="close" title="Close Modal">&times;</span>
-            <h1>La taverne de Cyril</h1>
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Mail</b></label>
-            <input type="email" placeholder="Mail" required>
-
-            <label for="psw"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Mot de passe" required>
-
-            <button type="submit" id="connect">Se connecter</button>
-
-        </div>
-
-        <div class="footContainer">
-            <div class="signUp">
-                <p>Pas encore de compte ? <a class=" signUpLink" href="/inscription">S'inscrire</a></p>
-            </div>
-        </div>
-    </form>
-</div> -->

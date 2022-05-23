@@ -16,6 +16,6 @@ define('REG_EXP_SEARCH','[0-9a-zA-Zàáâäãåąčćęèéêëėįìíîïłń�
 
 //---------------------------------------------------------- Autres constantes ------------------------------------------------------------->
 
-define('AUTHORIZED_IMAGE_FORMAT', ['image/jpeg', 'image/png']);
+define('AUTHORIZED_IMAGE_FORMAT', ['image/jpeg']);
 define('ARRAY_CATEGORIES', ['Deck-building', 'MetroidVania', 'Plate-forme', 'Tactical', 'Infiltration', 'Rogue-like', 'Survival-horror', 'Beat them all', 'Course', 'RPG', 'Aventure']);
 
