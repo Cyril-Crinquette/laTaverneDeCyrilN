@@ -9,13 +9,15 @@
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> <?=$article->title?> </h1>
-                <div id="imgCategory">
+                <div id="imgArticle">
                     <img src="/public/assets/img/article/<?=$article->id?>.jpg" alt="image illustrant l'article">
                 </div>
                 <div>
-                    <p> <?=$article->content?></p>
+                    <div class="textContent">
+                        <p> <?=$article->content?></p>
+                    </div>
                 </div>
-                <p class="card-text">Publié le <?=$article->publicated_at?> par <?=$author->pseudo?> </p>
+                <p class="card-text">Publié le <?=$article->publicated_at?> par <span><?=$author->pseudo?></span> </p>
 
                 <?php if(!empty($_SESSION['user'])) { ?>
                 <p id="addRemark">
@@ -26,11 +28,10 @@
 
 
                 <div class="remark">
-                    Ici seront affichés les différents commentaires liés à l'article
                     <?php
                     foreach ($allRemarks as $remark) { ?>
-                    <p><?=$remark->content?></p>
-                    <p><?=$remark->publicated_at?> par <?=$remark->author?></p> <br><br><br>
+                    <p id="remarkContent"><?=$remark->content?></p>
+                    <p><?=$remark->publicated_at?> par <span><?=$remark->author?></span></p>
                     <?php }
                     ?>
 
@@ -48,16 +49,16 @@
                     data-bs-interval="false">
                     <div class="carousel-inner cardHeight ">
                         <div class="carousel-item active">
-                            <img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
-                                alt="image du jeu Metroid Dread">
+                            <a href="/article?id=4"><img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
+                                    alt="image du jeu Metroid Dread"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
-                                alt="image du jeu The Evil Within">
+                            <a href="/article?id=5"><img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
+                                    alt="image du jeu The Evil Within"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/slayTheSpire.jpeg" class="d-block w-100"
-                                alt="image du jeu Slay the Spire">
+                            <a href="/article?id=2"><img src="public/assets/img/slayTheSpire.jpg" class="d-block w-100"
+                                    alt="image du jeu Slay the Spire"></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"
@@ -83,18 +84,16 @@
 <!------------------------------------------------  Modale de commentaires  ------------------------------------------------------------ ------------>
 
 <div id="modal" class="modal">
-<form class="modal-content" action="/article?id=<?=$article->id?>" method="post">
-    <div class="headContainer">
-        <span id="close" class="close" title="Close Modal">&times;</span>
-        <h1>Ecrire un commentaire</h1>
-    </div>
-    <div class="container">
-            <label for="uname"><b>Ecrire</b></label>
-            <textarea name="content" id="remarkCont" cols="30" rows="10"></textarea>
+    <form class="modal-content" action="/article?id=<?=$article->id?>" method="post">
+        <div class="headContainer">
+            <span id="close" class="close" title="Close Modal">&times;</span>
+            <h1>Ecrire un commentaire</h1>
+        </div>
+        <div class="container">
+            <textarea name="content" id="remarkCont" cols="35" rows="10"></textarea>
             <button type="submit" id="connect">Poster</button>
-        </form>
-    </div>
     </form>
 </div>
+</form>
+</div>
 <!-- ------------------------------------------------------------------------------------------------------------------------ -------------------------->
-

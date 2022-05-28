@@ -13,25 +13,32 @@
                     <img src="/public/assets/img/category/<?=$category->id?>.jpg" alt="image illustrant la catégorie">
                 </div>
                 <div>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                        dignissimos officia nihil, fuga quod non. Error! <br>
-                        Un paragraphe qui explique quelle est cette catégorie
-                    </p>
+                    <div class="textContent">
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                            dignissimos officia nihil, fuga quod non. Error!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                            dignissimos officia nihil, fuga quod non. Error!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
+                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
+                            dignissimos officia nihil, fuga quod non. Error!</p>
+                    </div>
                 </div>
 
 
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($articlesCategory as $value) { 
                         echo '<a href="/article?id='.$value->id.'">' ?>
-                        <div class="col">
-                            <div class="card">
-                                <img src="/public/assets/img/article/<?=$value->id?>.jpg" class="card-img-top" alt="image de l'article">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?=$value->title?></h5>
-                                </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="/public/assets/img/article/<?=$value->id?>.jpg" class="card-img-top"
+                                alt="image de l'article">
+                            <div class="card-body">
+                                <h5 class="card-title"><?=$value->title?></h5>
                             </div>
                         </div>
+                    </div>
                     </a>
                     <?php 
                 }
@@ -50,16 +57,16 @@
                     data-bs-interval="false">
                     <div class="carousel-inner cardHeight ">
                         <div class="carousel-item active">
-                            <img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
-                                alt="image du jeu Metroid Dread">
+                            <a href="/article?id=4"><img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
+                                    alt="image du jeu Metroid Dread"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
-                                alt="image du jeu The Evil Within">
+                            <a href="/article?id=5"><img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
+                                    alt="image du jeu The Evil Within"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/slayTheSpire.jpeg" class="d-block w-100"
-                                alt="image du jeu Slay the Spire">
+                            <a href="/article?id=2"><img src="public/assets/img/slayTheSpire.jpg" class="d-block w-100"
+                                    alt="image du jeu Slay the Spire"></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"

@@ -2,28 +2,28 @@
 <h1 id="mobileTitle" class="text-center"> Modification du profil </h1>
 <main>
     <div class="img">
-        <img src="/public/assets/img/imgForm.jpg" alt="une photo de moi regardant l'objectif">
+        <img src="/public/assets/img/userProfile.jpg" alt="les héros de jeux vidéo représentant les membres de la taverne">
     </div>
     <div class="text">
-        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$user->id?>" method="post" enctype="multipart/form-data" novalidate>
+        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$user->id?>" method="post" enctype="multipart/form-data">
             <div class="formDiv">
                 <input type="hidden" name="id" value="<?= $user->id ?>">
                 <label for="pseudo">Pseudo</label>
-                <input type="text" required name="pseudo" id="pseudo" value="<?=$user->pseudo ?? ''?>">
+                <input type="text" pattern="^[a-zA-ZÀ-ÿ0-9. -\']*$"required name="pseudo" id="pseudo" value="<?=$user->pseudo ?? ''?>">
                 <!-- Coallescente permettant de laisser affiché le pseudo s'il est correct -->
                 <div class="errors">
                     <?= $errors['pseudo'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée au pseudo si elle existe -->
                 </div>
                 <label for="password">Mot de passe</label>
-                <input type="password" required name="password" id="password" value="">
+                <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required name="password" id="password" value="">
                 <!-- Coallescente permettant de laisser affiché le mot de passe s'il est correct -->
                 <div class="errors">
                     <?= $errors['password'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée au mot de passe si elle existe -->
                 </div>
                 <label for="confirmPassword">Confirmation du mot de passe</label>
-                <input type="password" required name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
+                <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
                 <!-- Coallescente permettant de laisser affichée la confirmation du mot de passe s'il est correct -->
                 <div class="errors">
                     <?= $errors['confirmPassword'] ?? '' ?>
@@ -37,7 +37,7 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
                 </div>
                 <label for="description">Description</label>
-                <textarea name="description" id="description"><?=$user->description ?? 'Il n\'existe pas de description pour cet utilisateur'?></textarea>
+                <textarea name="description" pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$" id="description"><?=$user->description ?? 'Il n\'existe pas de description pour cet utilisateur'?></textarea>
                 <div class="errors"><?= $errors['description'] ?? '' ?></div>
                 <!-- Coallescente permettant d'afficher l'erreur liée au contenu de l'article si elle existe -->
                 <input type="submit" value="S'inscrire">

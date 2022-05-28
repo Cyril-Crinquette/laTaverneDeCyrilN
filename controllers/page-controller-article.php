@@ -23,15 +23,14 @@ $allRemarks = Article::getRemarksById($id);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
+    $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
 
-if(!empty($content)){
-    $remark = new Remark($id, $_SESSION['user']->id, $content, $publicated_at); 
-    $remark->save();
-    header('location: /article?id='.$article->id);
-    exit;
-}
-
+    if(!empty($content)){
+        $remark = new Remark($id, $_SESSION['user']->id, $content, $publicated_at); 
+        $remark->save();
+        header('location: /article?id='.$article->id);
+        exit;
+    }
 }
 
 // Appel des vues de la page article

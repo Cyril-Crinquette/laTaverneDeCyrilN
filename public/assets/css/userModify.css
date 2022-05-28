@@ -1,0 +1,124 @@
+/* ----------------RESPONSIVE MOBILE-------------- */
+
+main{
+    display: block;
+    width: 80%;
+    margin-top: 2em;
+    margin-left: 4em;
+    margin-bottom: 2em;
+}
+
+.img{
+    display:none;
+}
+
+.img>img{
+    object-fit: cover; 
+    height: 100%;
+    width: 100%;
+}
+
+.text{
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+textarea{
+    height: 12em;
+}
+
+.errors, input, label{
+    margin:0.3em;
+}
+
+input, textarea{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#validInscription:hover{
+    transform: scale(1.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+#contact{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.back{
+    margin-bottom: 1em;
+}
+
+/* --------------------------------------------------- */
+
+/* -------------------RESPONSIVE PC------------------- */
+
+@media screen and (min-width: 768px) { 
+    body{
+        height:120%;
+    }
+
+    .img{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    main{
+        margin: 1em 6em;
+    }
+
+    #contact{
+        justify-content: flex-end;
+        margin-right: 0.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .back{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3.5em;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    main{
+        display: flex;
+        margin: 1em 10em;
+    }
+
+    .img{
+        width: 50%;
+        margin-top: 4em;
+    }
+
+    .img>img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .text{
+        width: 50%
+    }
+
+}
+/* ---------------------------------------------------- */

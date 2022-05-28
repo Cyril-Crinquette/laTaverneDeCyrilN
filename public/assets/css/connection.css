@@ -26,6 +26,12 @@ form{
     flex-direction: column;
 }
 
+input{
+    margin-bottom: 1em;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .formElement{
     color: white;
     display: flex;
@@ -34,18 +40,25 @@ form{
 }
 
 .formElement>input{
-    background-color: blueviolet;
+    background-color: rgb(93,84,144);
     border-color: azure;
 }
 
 .formValid{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .formValid>input{
-    background-color: yellow;
-    
+    color: black ;
+    background-color: rgb(253,217,19);  
+}
+
+#validInscription:hover{
+    transform: scale(1.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
 #contact{
@@ -70,6 +83,14 @@ form{
 
     main{
         height: 500px;
+    }
+
+    input{
+        width: 300px;
+    }
+
+    .formValid>input{
+        width: 200px; 
     }
 
     #contact{

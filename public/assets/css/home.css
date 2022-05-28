@@ -28,10 +28,17 @@ color: white;
 .imgDiv {
     display: flex;
     justify-content: center;
+    margin-top: 1em;
 }
 
 .imgDiv>img {
     width: 100%;
+}
+
+.textContent{
+    margin-top: 1em;
+    padding: 0.5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 @media screen and (max-width: 768px){

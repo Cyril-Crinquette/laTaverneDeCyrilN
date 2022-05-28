@@ -35,6 +35,10 @@ form{
     flex-direction: column;
 }
 
+p, input, textarea{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 textarea{
     height:7em;
 }
@@ -85,8 +89,8 @@ button{
 
     .text{
         border: solid 0.1em rgb(235, 250, 234);
-        background-color: white;
-        color: black;
+        /* background-color: white;
+        color: black; */
     }
 
     /* input{

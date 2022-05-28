@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../models/User.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'connection.css';
-$pageTitle = 'Connection';
+$pageTitle = 'Connexion';
 
 # Appel des constantes et initialisation du tableau d'erreurs
 require_once(dirname(__FILE__).'/../config/constCategory.php');
@@ -27,6 +27,8 @@ $password = $_POST['password'];
 // Mail
 if ($user instanceof PDOException) {
     $errors['email'] = 'Votre email n\'existe pas';
+    header('location: /connexion');
+    exit;
 } else {
     if (!empty($email)) {
         $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);

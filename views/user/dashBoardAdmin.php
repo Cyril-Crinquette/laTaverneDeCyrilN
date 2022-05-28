@@ -13,7 +13,7 @@
             <th scope="col">Email</th>
             <th scope="col">Date de validation</th>
             <th scope="col">Profil</th>
-            <th scope="col">Suppression</th>
+            <th scope="col">Bannissement</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@
             <td scope="col"><?=$user->email;?></td>
             <td scope="col"><?=$user->validated_at;?></td>
             <td scope="col"><a href="/profil?id=<?=$user->id?>"> Profil</a></td>
-            <td scope="col"><a href="/suppression?id=<?=$user->id?>">Supprimer</a>
+            <td scope="col"><a href="/suppression?id=<?=$user->id?>">Bannir</a>
         </tr>
         <?php } ?>
         </tr>

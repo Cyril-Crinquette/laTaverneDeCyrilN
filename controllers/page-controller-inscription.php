@@ -80,47 +80,50 @@ if (empty($password)) {
         }
     }
 
-    if(empty($errors)){
-        $securedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $user = new User($pseudo, $email, $securedPassword, "", 2);
-        $user->save();
-    }
+    // if(empty($errors)){
+    //     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
+    //     $user = new User($pseudo, $email, $securedPassword, "", 2);
+    //     $user->save();
+    // }
 
+}
+
+// if(empty($errors)){  
+    
+
+// }
+}
+
+# Appel des vues
+if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    $pdo = Database::dbConnect();
+    $user = new User($pseudo, $email, $securedPassword, "", 2);
+    $user->save();
+    $id= $pdo->lastInsertId();
 // Vérification de la photo de profil
-if (isset($_FILES['filePicture'])) {
-    $filePicture = $_FILES['filePicture'];
-    if(!empty($filePicture['tmp_name'])){
-        if($filePicture['error']>0){
-            $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
-        } else {
-            if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
-                $errors["filePicture"] = "Le format du fichier n'est pas accepté";
+    if (isset($_FILES['filePicture'])) {
+        $filePicture = $_FILES['filePicture'];
+        if(!empty($filePicture['tmp_name'])){
+            if($filePicture['error']>0){
+                $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
             } else {
-                $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
-                $from = $filePicture['tmp_name'];
-                $to = dirname(__FILE__).'/../public/assets/img/user/'.$id.'.jpg';
-                move_uploaded_file($from, $to);
+                if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
+                    $errors["filePicture"] = "Le format du fichier n'est pas accepté";
+                } else {
+                    $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
+                    $from = $filePicture['tmp_name'];
+                    $to = dirname(__FILE__).'/../public/assets/img/user/'.$id.'.jpg';
+                    move_uploaded_file($from, $to);
+                }
             }
-        }
-    } 
-}
-}
-
-if(empty($errors)){  
+        } 
+    }
     $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/validation?mail='.$email;
     $message = '
     Veuillez cliquer sur le lien suivant:<br>
     <a href="'.$link.'">Activation</a>
     ';
     mail($email, 'Validation de votre inscription', $message);
-
-}
-}
-
-# Appel des vues
-if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    // $user = new User($pseudo, $email, $securedPassword, "", 2);
-    // $user->save();
     header('location: /envoi');
     exit;
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'utilisateur vers la page de confirmation d'envoi de mail

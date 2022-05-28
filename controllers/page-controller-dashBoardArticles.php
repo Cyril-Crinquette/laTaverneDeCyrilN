@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../models/Article.php';
 require_once dirname(__FILE__) . '/../models/Category.php';
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
-$style = 'dashBoardAdmin.css';
+$style = 'dashBoardArticles.css';
 $pageTitle = 'Dash board articles';
 
 $articlesList = Article::getAll();

@@ -5,10 +5,10 @@
         <img src="/public/assets/img/imgForm.jpg" alt="les héros de jeux vidéo représentant les membres de la taverne">
     </div>
     <div class="text">
-        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" enctype="multipart/form-data" novalidate>
+        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" enctype="multipart/form-data">
             <div class="formDiv">
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" required name="pseudo" id="pseudo" value="<?=$pseudo ?? ''?>">
+                <input type="text" pattern="^[a-zA-ZÀ-ÿ0-9. -\']*$" required name="pseudo" id="pseudo" value="<?=$pseudo ?? ''?>">
                 <!-- Coallescente permettant de laisser affiché le pseudo s'il est correct -->
                 <div class="errors">
                     <?= $errors['pseudo'] ?? '' ?>
@@ -22,14 +22,14 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à l'email si elle existe -->
                 </div>
                 <label for="password">Mot de passe :</label>
-                <input type="password" required name="password" id="password" value="<?=$password ?? ''?>">
+                <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required name="password" id="password" value="<?=$password ?? ''?>">
                 <!-- Coallescente permettant de laisser affiché le mot de passe s'il est correct -->
                 <div class="errors">
                     <?= $errors['password'] ?? '' ?>
                     <!-- Coallescente permettant d'afficher l'erreur liée au mot de passe si elle existe -->
                 </div>
                 <label for="confirmPassword">Confirmation du mot de passe :</label>
-                <input type="password" required name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
+                <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required name="confirmPassword" id="confirmPassword" value="<?=$confirmPassword ?? ''?>">
                 <!-- Coallescente permettant de laisser affichée la confirmation du mot de passe s'il est correct -->
                 <div class="errors">
                     <?= $errors['confirmPassword'] ?? '' ?>

@@ -3,7 +3,7 @@
 <h1 id="mobileTitle" class="text-center"> Contact </h1>
 <main> 
     <div class="img">
-        <img src="/public/assets/img/contactMe.jpg" alt="une photo de moi regardant l'objectif">
+        <img src="/public/assets/img/contactMe (2).jpg" alt="une photo de moi regardant l'objectif">
     </div>
     <div class="text">
         <div class="info">
@@ -12,15 +12,15 @@
         </div>
         <div class="contact">
             <h4> Me contacter </h4>
-            <form action="" method="post" novalidate>
+            <form action="" method="post">
                 <label for="email">Mail</label>
-                <input type="email" required name="email" id="email" value="<?=$email ?? ''?>">
+                <input type="email" required pattern="^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇÉÈÊËÎÏÔŒÙÛÜŸ '-]*$" name="email" id="email" value="<?=$email ?? ''?>">
                 <div class="errors"><?= $errors['email'] ?? '' ?></div>
                 <label for="name">Nom</label>
                 <input type="text" required name="name" id="name" value="<?=$name ?? ''?>">
                 <div class="errors"><?= $errors['name'] ?? '' ?></div>
                 <label for="contactMe">Votre message</label>
-                <textarea name="contactMe" id="contactMe"><?=$contactMe ?? ''?></textarea>
+                <textarea name="contactMe" pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$" id="contactMe"><?=$contactMe ?? ''?></textarea>
                 <div class="errors"><?= $errors['contactMe'] ?? '' ?></div>
                 <button id="validMsg" type="submit">Soumettre</button>
             </form>

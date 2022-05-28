@@ -8,7 +8,7 @@
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> La taverne de Cyril </h1>
                 <div class="imgDiv">
-                    <img src="/public/assets/img/slayTheSpire.jpg" alt="image du jeu Slay the Spire">
+                    <img src="/public/assets/img/home2.jpg" alt="image de nombreux jeux issus de différentes catégories">
                 </div>
                 <div class= "textContent">
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
@@ -32,16 +32,16 @@
                     data-bs-interval="false">
                     <div class="carousel-inner cardHeight ">
                         <div class="carousel-item active">
-                            <img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
-                                alt="image du jeu Metroid Dread">
+                            <a href="/article?id=4"><img src="public/assets/img/metroidDread.jpg" class="d-block w-100"
+                                alt="image du jeu Metroid Dread"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
-                                alt="image du jeu The Evil Within">
+                            <a href="/article?id=5"><img src="public/assets/img/theEvilWithin.jpg" class="d-block w-100"
+                                alt="image du jeu The Evil Within"></a>
                         </div>
                         <div class="carousel-item">
-                            <img src="public/assets/img/slayTheSpire.jpeg" class="d-block w-100"
-                                alt="image du jeu Slay the Spire">
+                            <a href="/article?id=2"><img src="public/assets/img/slayTheSpire.jpg" class="d-block w-100"
+                                alt="image du jeu Slay the Spire"></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"

@@ -68,44 +68,43 @@ if(!empty($content)){
     $errors["content"] = "Veuillez écrire votre article";
 }
 
-if (empty($errors)) {
-    $article = new Article($id_users, $category, $title, $content, $publicated_at);
-    $article->save();
-    $id = $article->id;
-}
-
-// Vérification de la photo de l'article
-if (isset($_FILES['filePicture'])) {
-
-    $filePicture = $_FILES['filePicture'];
-    if(!empty($filePicture['tmp_name'])){
-
-        if($filePicture['error']>0){
-            $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
-        } else {
-
-            if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
-                $errors["filePicture"] = "Le format du fichier n'est pas accepté";
-            } else {
-
-                $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
-                $from = $filePicture['tmp_name'];
-                $to = dirname(__FILE__).'/../public/assets/img/article/'.$id.'.jpg';
-                $result = move_uploaded_file($from, $to);
-            }
-        }
-    } 
-}
-
-
-
+// if (empty($errors)) {
+//     $article = new Article($id_users, $category, $title, $content, $publicated_at);
+//     $article->save();
+//     $id = $article->id;
+// }
 }
 
 # Appel des vues
+
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    // $article = new Article($id_users, $category, $title, $content, $publicated_at);
-    // $article->save();
+    $pdo = Database::dbConnect();
+    $article = new Article($id_users, $category, $title, $content, $publicated_at);
+    $article->save();
+    $id= $pdo->lastInsertId();
+     // Vérification de la photo de l'article
+    if (isset($_FILES['filePicture'])) {
+        $filePicture = $_FILES['filePicture'];
+        if(!empty($filePicture['tmp_name'])){
+
+            if($filePicture['error']>0){
+                $errors["filePicture"] = "Erreur survenue lors du transfert de fichier"; 
+            } else {
+
+                if(!in_array($filePicture['type'], AUTHORIZED_IMAGE_FORMAT)){
+                    $errors["filePicture"] = "Le format du fichier n'est pas accepté";
+                } else {
+
+                    $extension = pathinfo($filePicture['name'],PATHINFO_EXTENSION);
+                    $from = $filePicture['tmp_name'];
+                    $to = dirname(__FILE__).'/../public/assets/img/article/'.$id.'.jpg';
+                    $result = move_uploaded_file($from, $to);
+                }
+            }
+        } 
+    }
     header('location: /dash-board-articles');
+    exit;
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'administrateur vers le dash board articles
 } else {
     include(dirname(__FILE__).'/../views/templates/header.php');
