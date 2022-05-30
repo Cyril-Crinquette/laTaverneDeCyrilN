@@ -289,7 +289,6 @@ class Article
     //-----------------------------------------------------------------------------------------------------
 
     // Méthode getRemarksById permettant d'obtenir les commentaires d'un article ---------------------------
-
     public static function getRemarksById(int $id):array{
         try {
             $sql = 'SELECT    

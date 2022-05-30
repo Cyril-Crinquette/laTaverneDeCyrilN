@@ -5,12 +5,12 @@
     <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
         <div class="formElement">
             <label for="email"> Mail:</label>
-            <input type="email" name="email" id="email" value="<?=$email ?? ''?>">
+            <input type="email" required name="email" id="email" value="<?=$email ?? ''?>">
             <div class="errors"> <?=$errors['email'] ?? ''?> </div>
         </div>
         <div class="formElement">
             <label for="password"> Mot de passe:</label>
-            <input type="password" name="password" id="password" value="<?=$password ?? ''?>">
+            <input type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" name="password" id="password" value="<?=$password ?? ''?>">
             <div class="errors"> <?=$errors['password'] ?? ''?> </div>
         </div>
         <div class="formValid">

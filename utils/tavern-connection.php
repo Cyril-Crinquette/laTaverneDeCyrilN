@@ -8,7 +8,7 @@ $error = null;
 class Database 
     {
 
-        private static $pdo; // on mets static car la méthode est en static car sinon message d'erreur ; 
+        private static $pdo; // on mets static car la méthode est en statique sinon message d'erreur ; 
 
         public static function dbConnect():object 
         {
@@ -23,7 +23,7 @@ class Database
 
             }
             catch (PDOException $e) { 
-                header('location: /controllers/error-controller.php'); /// remplacer cette url !!!!!!!!!!!!!!!!!!!!!!!
+                header('location: /erreur?error=1'); 
                 exit ;
             }
             return self::$pdo;

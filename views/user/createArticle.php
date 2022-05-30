@@ -7,7 +7,7 @@
     <div class="text">
         <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" enctype="multipart/form-data">
             <div class="formDiv">
-                <select name="category" id="category" class="form-control">
+                <select name="category" required id="category" class="form-control">
                     <?php foreach ($categoryList as $category) {
                             echo "<option value='$category->id'>$category->name</option>";
                         } ?>
@@ -31,7 +31,7 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
                 </div>
                 <label for="content">Contenu de l'article</label>
-                <textarea name="content" pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$ id="content" ><?=$content ?? ''?></textarea>
+                <textarea name="content" required pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$ id="content" ><?=$content ?? ''?></textarea>
                 <div class="errors"><?= $errors['content'] ?? '' ?></div>
                 <!-- Coallescente permettant d'afficher l'erreur liée au contenu de l'article si elle existe -->
                 <input type="submit" value="Publier">

@@ -7,7 +7,7 @@
     <div class="text">
     <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" enctype="multipart/form-data" method="post">
             <div class="formDiv">
-                <select name="category" id="category" class="form-control">
+                <select name="category" required id="category" class="form-control">
                     <?php foreach ($categoryList as $category) {
                             $isSelected = isset($article) && ($category->id == $article->id_categories) ? 'selected' : '';
                             echo '<option value="' . $category->id . '" ' .  $isSelected  . '>' . $category->name . '</option>';

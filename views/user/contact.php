@@ -20,7 +20,7 @@
                 <input type="text" required name="name" id="name" value="<?=$name ?? ''?>">
                 <div class="errors"><?= $errors['name'] ?? '' ?></div>
                 <label for="contactMe">Votre message</label>
-                <textarea name="contactMe" pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$" id="contactMe"><?=$contactMe ?? ''?></textarea>
+                <textarea name="contactMe" required pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$" id="contactMe"><?=$contactMe ?? ''?></textarea>
                 <div class="errors"><?= $errors['contactMe'] ?? '' ?></div>
                 <button id="validMsg" type="submit">Soumettre</button>
             </form>

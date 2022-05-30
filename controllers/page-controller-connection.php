@@ -2,7 +2,7 @@
 
 <?php
 
-// Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données etc..
+// Fichier d'initialisation permettant le lancement d'une session, la connexion à la base de données etc..
 require_once dirname(__FILE__) . '/../utils/init.php';
 
 // Appel des modèles nécessaires dans le controller
