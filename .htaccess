@@ -10,10 +10,10 @@ RewriteRule ^bienvenue$ /controllers/page-controller-welcome.php [L]
 # /accueil -> /controllers/home-controller.php
 RewriteRule ^accueil$ /controllers/page-controller-home.php [L]
 
-# /connection -> /controllers/connection-controller.php
+# /connexion -> /controllers/connection-controller.php
 RewriteRule ^connexion$ /controllers/page-controller-connection.php [L]
 
-# /deconnection -> /controllers/deconnection-controller.php
+# /déconnexion -> /controllers/deconnection-controller.php
 RewriteRule ^déconnexion$ /controllers/page-controller-deconnection.php [L]
 
 # /inscription -> /controllers/inscription-controller.php
@@ -31,46 +31,46 @@ RewriteRule ^article$ /controllers/page-controller-article.php [L]
 # /contact -> /controllers/contact-controller.php
 RewriteRule ^contact$ /controllers/page-controller-contact.php [L]
 
-# /profile -> /controllers/profile-controller.php
+# /profil -> /controllers/profile-controller.php
 RewriteRule ^profil$ /controllers/page-controller-profile.php [L]
 
-# /createArticle -> /controllers/createArticle-controller.php
+# /nouvel-article -> /controllers/createArticle-controller.php
 RewriteRule ^nouvel-article$ /controllers/page-controller-createArticle.php [L]
 
-# /createRemark -> /controllers/createRemark-controller.php
+# /nouveau-commentaire -> /controllers/createRemark-controller.php
 RewriteRule ^nouveau-commentaire$ /controllers/page-controller-createRemark.php [L]
 
-# /remarkModify -> /controllers/remarkModify-controller.php
+# /modification-commentaire -> /controllers/remarkModify-controller.php
 RewriteRule ^modification-commentaire$ /controllers/page-controller-remarkModify.php [L]
 
-# /deleteRemark -> /controllers/page-controller-deleteRemark.php
+# /suppression-commentaire -> /controllers/page-controller-deleteRemark.php
 RewriteRule ^suppression-commentaire$ /controllers/page-controller-deleteRemark.php [L]
 
-# /userModify -> /controllers/userModify-controller.php
+# /modification-utilisateur -> /controllers/userModify-controller.php
 RewriteRule ^modification-utilisateur$ /controllers/page-controller-userModify.php [L]
 
-# /articleModify -> /controllers/articleModify-controller.php
+# /modification-article -> /controllers/articleModify-controller.php
 RewriteRule ^modification-article$ /controllers/page-controller-articleModify.php [L]
 
-# /messageContact -> /controllers/messageContact-controller.php
+# /confirmation -> /controllers/messageContact-controller.php
 RewriteRule ^confirmation$ /controllers/page-controller-messageContact.php [L]
 
-# /error -> /controllers/error-controller.php
+# /erreur -> /controllers/error-controller.php
 RewriteRule ^erreur$ /controllers/page-controller-error.php [L]
 
-# /confirmedMail -> /controllers/confirmedMail-controller.php
+# /envoi -> /controllers/confirmedMail-controller.php
 RewriteRule ^envoi$ /controllers/page-controller-confirmedMail.php [L]
 
-# /dashBoardAdmin -> /controllers/dashBoardAdmin-controller.php
+# /dash-board -> /controllers/dashBoardAdmin-controller.php
 RewriteRule ^dash-board$ /controllers/page-controller-dashBoardAdmin.php [L]
 
-# /dashBoardArticles -> /controllers/dashBoardArticles-controller.php
+# /dash-board-articles -> /controllers/dashBoardArticles-controller.php
 RewriteRule ^dash-board-articles$ /controllers/page-controller-dashBoardArticles.php [L]
 
-# /delete -> /controllers/page-controller-delete.php
+# /suppression -> /controllers/page-controller-delete.php
 RewriteRule ^suppression$ /controllers/page-controller-delete.php [L]
 
-# /deleteArticle -> /controllers/page-controller-deleteArticle.php
+# /suppression-article -> /controllers/page-controller-deleteArticle.php
 RewriteRule ^suppression-article$ /controllers/page-controller-deleteArticle.php [L]
 
 

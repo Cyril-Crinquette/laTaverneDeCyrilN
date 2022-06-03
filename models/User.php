@@ -183,6 +183,7 @@ class User
         }
     }
     //-----------------------------------------------------------------------------------------------------
+    
     // Méthode getOne permettant d'obtenir un utilisateur à partir de son id ------------------------------------
 
     public static function getOne(int $id): object{

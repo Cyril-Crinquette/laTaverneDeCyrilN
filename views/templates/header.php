@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/public/assets/css/style.css">
     <!-- Chargement de la feuille de style commune aux différentes pages -->
     <link rel="stylesheet" href="/public/assets/css/<?=$style?>">
-    <!-- Chargement de la feuille de style correspondant à la page d'accueil -->
+    <!-- Chargement de la feuille de style spécifique à la page -->
 </head>
 
 <body>

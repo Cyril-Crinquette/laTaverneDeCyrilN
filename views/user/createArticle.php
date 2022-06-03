@@ -7,6 +7,7 @@
     <div class="text">
         <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post" enctype="multipart/form-data">
             <div class="formDiv">
+                <label for="category">Catégorie</label>
                 <select name="category" required id="category" class="form-control">
                     <?php foreach ($categoryList as $category) {
                             echo "<option value='$category->id'>$category->name</option>";
