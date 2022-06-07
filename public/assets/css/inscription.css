@@ -65,7 +65,7 @@ select, input, textarea{
 
 /* -------------------RESPONSIVE PC------------------- */
 
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px){ 
     body{
         height:120%;
     }
@@ -95,7 +95,7 @@ select, input, textarea{
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px){
     main{
         display: flex;
         margin: 1em 10em;
@@ -115,6 +115,5 @@ select, input, textarea{
     .text{
         width: 30%
     }
-
 }
 /* ---------------------------------------------------- */

@@ -1,8 +1,12 @@
+# <Directory "/path/to/document/root/">
+# AllowOverride All
+
+# </Directory>
+
 # links follow
 Options +FollowSymlinks 
 # rewrite Apache activate
 RewriteEngine On
-
 
 # /bienvenue -> /controllers/welcome-controller.php
 RewriteRule ^bienvenue$ /controllers/page-controller-welcome.php [L]
@@ -73,4 +77,6 @@ RewriteRule ^suppression$ /controllers/page-controller-delete.php [L]
 # /suppression-article -> /controllers/page-controller-deleteArticle.php
 RewriteRule ^suppression-article$ /controllers/page-controller-deleteArticle.php [L]
 
+# /mentions-légales -> /controllers/page-controller-legal-mentions.php
+RewriteRule ^mentions-légales$ /controllers/page-controller-legal-mentions.php [L]
 

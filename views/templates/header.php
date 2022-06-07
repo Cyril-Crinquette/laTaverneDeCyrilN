@@ -33,16 +33,17 @@
                     <h1 id="pcTitle"> <?=$pageTitle?> </h1>
                 </div>
                 <div class="col-2 loginHeader d-flex justify-content-center align-items-center">
-                <?php if(empty($_SESSION["user"])){?>
+                    <?php if(empty($_SESSION["user"])){?>
                     <p id="userInt"> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
-                <?php } else {?>
+                    <?php } else {?>
                     <a href="/profil?id=<?=$_SESSION['user']->id?>">
                         <div id="userPicture">
-                            <img class="userImg" src="/public/assets/img/user/<?=$_SESSION['user']->id?>.jpg" alt="image de profil de l'utilisateur">
+                            <img class="userImg" src="/public/assets/img/user/<?=$_SESSION['user']->id?>.jpg"
+                                alt="image de profil de l'utilisateur">
                         </div>
                     </a>
                     <p id="userInt"> <a href="/déconnexion">Déconnexion</a> </p>
-                <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>

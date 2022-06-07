@@ -16,7 +16,6 @@ $style = 'articleModify.css';
 $pageTitle = 'Modification d\'article';
 
 # Appel des constantes et initialisation du tableau d'erreurs
-// require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
 $errors=[];
 
@@ -29,7 +28,7 @@ if($_SESSION['user']->id_roles != 1) {
 $categoryList = Category::getAll(); 
 $categoryId = [];
 foreach ($categoryList as $key => $value) {
-array_push($categoryId, $value->id);
+    array_push($categoryId, $value->id);
 }
 
 if (!empty($_GET)) {
@@ -102,6 +101,7 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     // $id = intval(filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT));
     $oneArticle = new Article($id_users, $category, $title, $content, $publicated_at);
     $article = $oneArticle -> update($id);
+    SessionFlash::set('L\'article a bien été mis à jour');
         header('location: /dash-board-articles');
     // S'il n'y a aucune erreur et que le formulaire est envoyé en post, alors on envoie l'administrateur vers le dash board articles
 } else {

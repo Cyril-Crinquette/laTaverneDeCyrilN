@@ -1,10 +1,9 @@
 <!------------------------------------------------------- Vue du dash board utilisateurs --------------------------------------------------------- -->
-<h1 id="mobileTitle" class="text-center"> Dash board utilisateurs </h1>
 
+<h1 id="mobileTitle" class="text-center"> Dash board utilisateurs </h1>
 <h6 class="text-center">
     <?=SessionFlash::display('message')?>
 </h6>
-
 <table class="table">
     <thead>
         <tr>
@@ -24,9 +23,10 @@
             <td scope="col"><?=$user->email;?></td>
             <td scope="col"><?=$user->validated_at;?></td>
             <td scope="col"><a href="/profil?id=<?=$user->id?>"> Profil</a></td>
-            <td scope="col"><a href="/suppression?id=<?=$user->id?>">Bannir</a>
+            <td scope="col"><a href="#" onclick="deleteConfirm('/suppression?id=<?=$user->id?>')">Bannir</a></td>
         </tr>
         <?php } ?>
         </tr>
     </tbody>
 </table>
+<!------------------------------------------------------------------------------------------------------------------------------------------------ -->

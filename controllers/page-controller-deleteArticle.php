@@ -13,7 +13,7 @@ if(!empty($_GET) && ($_SESSION['user']->id_roles == 1)) {
     $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
     $articleDelete = Article::delete($id);
     if ($articleDelete) {
-        SessionFlash::set('Un article est sorti de la taverne');
+        SessionFlash::set('Un article du site a été supprimé');
     }
     header('location: '.$_SERVER['HTTP_REFERER']);
     exit;

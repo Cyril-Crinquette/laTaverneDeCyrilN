@@ -15,7 +15,7 @@ if(!empty($_GET) && (($_SESSION['user']->id == $id_users) || ($_SESSION['user']-
     $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
     $remarkDelete = Remark::delete($id);
     if ($remarkDelete) {
-        SessionFlash::set('Un commentaire a été supprimé');
+        SessionFlash::set('Le commentaire a été supprimé');
     }
     header('location: '.$_SERVER['HTTP_REFERER']);
     exit;

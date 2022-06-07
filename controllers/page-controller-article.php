@@ -34,6 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Appel des vues de la page article
-    include(dirname(__FILE__).'/../views/templates/header.php');
-    include(dirname(__FILE__).'/../views/user/article.php');
-    include(dirname(__FILE__).'/../views/templates/footer.php');
+include(dirname(__FILE__).'/../views/templates/header.php');
+include(dirname(__FILE__).'/../views/user/article.php');
+include(dirname(__FILE__).'/../views/templates/footer.php');

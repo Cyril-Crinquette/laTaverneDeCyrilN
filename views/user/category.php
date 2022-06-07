@@ -5,7 +5,6 @@
         <?php 
     include(dirname(__FILE__).'/../templates/navbar.php');
     ?>
-
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> <?=$category->name?> </h1>
@@ -25,8 +24,6 @@
                             dignissimos officia nihil, fuga quod non. Error!</p>
                     </div>
                 </div>
-
-
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <?php foreach ($articlesCategory as $value) { 
                         echo '<a href="/article?id='.$value->id.'">' ?>
@@ -43,12 +40,9 @@
                     <?php 
                 }
                 ?>
-
                 </div>
             </div>
-
         </div>
-
         <div class="thirdColumn col-12 col-md-2">
             <div>
                 <h4 class="text-center feelings">Coups de coeur de l'année</h4>
@@ -91,31 +85,4 @@
 
     </div>
 </div>
-<!------------------------------------------------  Modale de connexion  ------------------------------------------------------------ -->
-
-<!-- <div id="modal" class="modal">
-    <form class="modal-content" action="" method="post">
-        <div class="headContainer">
-            <span id="close" class="close" title="Close Modal">&times;</span>
-            <h1>La taverne de Cyril</h1>
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Mail</b></label>
-            <input type="email" placeholder="Mail" required>
-
-            <label for="psw"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Mot de passe" required>
-
-            <button type="submit" id="connect">Se connecter</button>
-
-        </div>
-
-        <div class="footContainer">
-            <div class="signUp">
-                <p>Pas encore de compte ? <a class=" signUpLink" href="/inscription">S'inscrire</a></p>
-            </div>
-        </div>
-    </form>
-</div> -->
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->

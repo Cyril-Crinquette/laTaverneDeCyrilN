@@ -2,7 +2,7 @@
 
 <footer>
     <div id="legalMentions" class="footer-copyright text-center py-3">
-        <p class="font-weight-bold"><a href="/"> Mentions légales</a></p>
+        <p class="font-weight-bold"><a href="/mentions-légales"> Mentions légales</a></p>
         <p class="font-weight-bold"> Tous droits réservés © 2022</p>
     </div>
 </footer>

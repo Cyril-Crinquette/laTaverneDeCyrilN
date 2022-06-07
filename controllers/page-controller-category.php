@@ -2,8 +2,6 @@
 
 <?php
 
-require_once dirname(__FILE__) . '/../config/constCategory.php';
-
 // Fichier d'initialisation permettant le lancement d'une session, la connection à la base de données, etc...
 require_once dirname(__FILE__) . '/../utils/init.php';
 
@@ -19,6 +17,6 @@ $pageTitle = $category->name;
 $articlesCategory = Category::getArticlesById($id);
 
 // Appel des vues de la page category
-    include(dirname(__FILE__).'/../views/templates/header.php');
-    include(dirname(__FILE__).'/../views/user/category.php');
-    include(dirname(__FILE__).'/../views/templates/footer.php');
+include(dirname(__FILE__).'/../views/templates/header.php');
+include(dirname(__FILE__).'/../views/user/category.php');
+include(dirname(__FILE__).'/../views/templates/footer.php');

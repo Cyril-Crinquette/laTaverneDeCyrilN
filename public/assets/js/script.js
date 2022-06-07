@@ -24,6 +24,24 @@ window.onclick = function(event){
     }
 }
 
+// Fonctions permettant d'avertir l'utilisateur avant suppression 
+function deleteConfirm(link){
+    if (window.confirm('Etes-vous sûr de vouloir supprimer le profil ?')) {
+        window.location.replace(link);
+    }
+}
+
+function deleteArticleConfirm(link){
+    if (window.confirm('Etes-vous sûr de vouloir supprimer l\'article ?')) {
+        window.location.replace(link);
+    }
+}
+
+function deleteRemarkConfirm(link){
+    if (window.confirm('Etes-vous sûr de vouloir supprimer le commentaire ?')) {
+        window.location.replace(link);
+    }
+}
 
 
 

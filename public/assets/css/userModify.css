@@ -64,12 +64,11 @@ input, textarea{
 .back{
     margin-bottom: 1em;
 }
-
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
 
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px){ 
     body{
         height:120%;
     }
@@ -99,7 +98,7 @@ input, textarea{
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px){
     main{
         display: flex;
         margin: 1em 10em;
@@ -119,6 +118,5 @@ input, textarea{
     .text{
         width: 50%
     }
-
 }
 /* ---------------------------------------------------- */

@@ -23,74 +23,72 @@ $style = 'contact.css';
 $pageTitle = 'Contact';
 
 //Appel des constantes et initialisation du tableau d'erreurs
-require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
-
 $errors=[];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-// Traitement des données
-// Mail
-$email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-if (!empty($email)) {
-    $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
-    if (!$testEmail) {
-        $errors["email"] = "L'adresse email n'est pas au bon format";
+    // Traitement des données
+    // Mail
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    if (!empty($email)) {
+        $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if (!$testEmail) {
+            $errors["email"] = "L'adresse email n'est pas au bon format";
+        }
+    } else {
+        $errors["email"] = "Veuillez rentrer une adresse mail";
     }
-} else {
-    $errors["email"] = "Veuillez rentrer une adresse mail";
-}
 
-// Name
-$name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS));    
-// On vérifie que ce n'est pas vide
-if (empty($name)) {
-    $errors['name'] = 'Veuillez saisir votre nom';
-} else { // Pour les champs obligatoires, on retourne une erreur
-    $checkedName = filter_var(
-        $name,
-        FILTER_VALIDATE_REGEXP,
-        array("options" => array("regexp" => '/' . REG_EXP_NO_NUMBER . '/'))
-    );
-    if (!$checkedName) {
-        $errors['name'] = 'Veuillez saisir un nom valide';
+    // Name
+    $name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS));    
+    // On vérifie que ce n'est pas vide
+    if (empty($name)) {
+        $errors['name'] = 'Veuillez saisir votre nom';
+    } else { // Pour les champs obligatoires, on retourne une erreur
+        $checkedName = filter_var(
+            $name,
+            FILTER_VALIDATE_REGEXP,
+            array("options" => array("regexp" => '/' . REG_EXP_NO_NUMBER . '/'))
+        );
+        if (!$checkedName) {
+            $errors['name'] = 'Veuillez saisir un nom valide';
+        }
     }
-}
 
-// Message
-$contactMe = trim(filter_input(INPUT_POST, 'contactMe', FILTER_SANITIZE_SPECIAL_CHARS));
-if(!empty($contactMe)){
-    $checkMsg = filter_var($contactMe, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
-    if(!$checkMsg){
-        $errors["contactMe"] = "Veuillez saisir des caractères valides pour que votre message soit envoyé";
+    // Message
+    $contactMe = trim(filter_input(INPUT_POST, 'contactMe', FILTER_SANITIZE_SPECIAL_CHARS));
+    if(!empty($contactMe)){
+        $checkMsg = filter_var($contactMe, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
+        if(!$checkMsg){
+            $errors["contactMe"] = "Veuillez saisir des caractères valides pour que votre message soit envoyé";
+        }
+    } else {
+        $errors["contactMe"] = "Veuillez rentrer votre message";
     }
-} else {
-    $errors["contactMe"] = "Veuillez rentrer votre message";
-}
 
-if (empty($errors)){
-    $mail = new PHPMailer(true);
-    
-        $mail -> SMTPDebug  =  0 ;    
-        $mail -> isSMTP();
-        $mail->Host = "smtp.ionos.com";
-        $mail->Port = 587;
-        $mail->SMTPSecure = 'TSL';   
-        $mail->SMTPAuth = true;
-        $mail->Username = "contact@nadirbensalah.fr";    
-        $mail->Password = "***********";                                    
-        $mail->setFrom($email, $name);           
+    if (empty($errors)){
+        $mail = new PHPMailer(true);
         
-        $mail->addAddress($email);
+            $mail -> SMTPDebug  =  0 ;    
+            $mail -> isSMTP();
+            $mail->Host = "smtp.ionos.com";
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'TSL';   
+            $mail->SMTPAuth = true;
+            $mail->Username = "contact@nadirbensalah.fr";    
+            $mail->Password = "***********";                                    
+            $mail->setFrom($email, $name);           
+            
+            $mail->addAddress($email);
+            
+            $mail->isHTML(true);                                  
+            $mail->Subject = ucwords($subject) ;
+            $mail->Body    = $message;
+            
+            $request= $mail->send();
         
-        $mail->isHTML(true);                                  
-        $mail->Subject = ucwords($subject) ;
-        $mail->Body    = $message;
-        
-        $request= $mail->send();
-    
-}
+    }
 
 }
 
@@ -104,6 +102,6 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     include(dirname(__FILE__).'/../views/templates/header.php');
     // Si des erreurs persistent, on renvoie l'utilisateur vers la page de contact, autant que nécessaire
     include(dirname(__FILE__).'/../views/user/contact.php');
+    include(dirname(__FILE__).'/../views/templates/footer.php');
 } 
-include(dirname(__FILE__).'/../views/templates/footer.php');
 

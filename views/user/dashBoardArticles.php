@@ -1,11 +1,9 @@
 <!------------------------------------------------------- Vue du dash board articles--------------------------------------------------------- -->
 
 <h1 id="mobileTitle" class="text-center"> Dash board articles </h1>
-
 <h6 class="text-center">
     <?=SessionFlash::display('message')?>
 </h6>
-
 <table class="table">
     <thead>
         <tr>
@@ -28,9 +26,10 @@
             <td scope="col"><?=$article->author;?></td>
             <td scope="col"><?=$article->publicated_at;?></td>
             <td scope="col"><a href="/modification-article?id=<?=$article->id?>"> Modifier</a></td>
-            <td scope="col"><a href="/suppression-article?id=<?=$article->id?>">Supprimer</a>
+            <td scope="col"><a href="#" onclick="deleteArticleConfirm('/suppression-article?id=<?=$article->id?>')">Supprimer</a></td>
         </tr>
         <?php } ?>
         </tr>
     </tbody>
 </table>
+<!------------------------------------------------------------------------------------------------------------------------------------------------ -->

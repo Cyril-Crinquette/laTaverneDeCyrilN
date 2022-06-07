@@ -1,10 +1,10 @@
 /* ----------------RESPONSIVE MOBILE-------------- */
 
-.main>.row {
+.main>.row{
     height: 100%;
 }
 
-.contentMiddle {
+.contentMiddle{
     height: 100%;
 }
 
@@ -32,19 +32,12 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* .firstColumn {
-}
-
-.secondColumn {
-}
-
-.thirdColumn {
-} */
 .navCat, .feelings, .contentMiddle{
     margin-top: 2em;
 }
 
 #addRemark{
+    cursor: pointer;
     text-align: center;
     font-size:x-large;
     margin-top: 2.5em;
@@ -65,47 +58,19 @@ span{
     font-family: 'Joti One';
 }
 
-/* .imgDiv {
-    display: flex;
-    justify-content: center;
-}
-
-.imgDiv>img {
-    width: 90%;
-} */
-
-/* .articlesCategory{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-} */
-
-/* .articlesCategory>div{
-    margin: 20px 10px;
-} */
-
-
-@media screen and (max-width: 768px) {
-    #contact {
+@media screen and (max-width: 768px){
+    #contact{
         font-size: larger;
         text-align: center;
         margin: 1.5em;
     }
-
 }
 
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
 
-@media screen and (min-width: 768px) {
-
-    /* .firstColumn {
-    }
-
-    .secondColumn {
-    } */
-
+@media screen and (min-width: 768px){
     body{
         height:170%;
     }

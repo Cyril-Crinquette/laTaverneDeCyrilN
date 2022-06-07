@@ -20,78 +20,65 @@ require_once(dirname(__FILE__).'/../config/constForm.php');
 // require_once(dirname(__FILE__).'/../helpers/JWT.php');
 // ATTENTION CONTINUER ULTERIEUREMENT L'ADAPTATION POUR LE TOKEN
 
-
 $errors=[];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-# Traitement des données
-// Pseudo
-$pseudo = trim(filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
-$isOk = filter_var($pseudo, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>'/'.REG_EXP_LOGIN.'/')));
+    # Traitement des données
+    // Pseudo
+    $pseudo = trim(filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+    $isOk = filter_var($pseudo, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>'/'.REG_EXP_LOGIN.'/')));
 
-if(!empty($pseudo)){
-    if(!$isOk){
-        $errors['pseudo'] = 'Merci de choisir un pseudo valide';
+    if(!empty($pseudo)){
+        if(!$isOk){
+            $errors['pseudo'] = 'Merci de choisir un pseudo valide';
+        }
+    }else{
+        $errors['pseudo'] = 'Vous devez choisir un pseudo';
     }
-}else{
-    $errors['pseudo'] = 'Vous devez choisir un pseudo';
-}
 
-// Mail
-$email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-$testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+    // Mail
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    $testEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-if (!empty($email)) {
-    if (!$testEmail) {
-        $errors["email"] = "L'adresse email n'est pas au bon format";
-    }
-    if(User::isMailExists($email)){
-        $errors['email'] = 'Ce mail existe déjà dans la taverne';
-    }
-} else {
-    $errors["email"] = "Veuillez rentrer une adresse mail";
-}
-
-// Vérification des mots de passe rentrés
-$password = $_POST['password'];
-$confirmPassword = $_POST['confirmPassword'];
-
-
-if (empty($password)) {
-    $errors['password'] = 'Veuillez saisir votre mot de passe';
-} else {
-    if (empty($confirmPassword)) {
-    $errors['confirmPassword'] = 'Veuillez confirmer votre mot de passe';
+    if (!empty($email)) {
+        if (!$testEmail) {
+            $errors["email"] = "L'adresse email n'est pas au bon format";
+        }
+        if(User::isMailExists($email)){
+            $errors['email'] = 'Ce mail existe déjà dans la taverne';
+        }
     } else {
-        if ($password != $confirmPassword) {
-            $errors['confirmPassword'] = 'Veuillez saisir 2 fois le même mot de passe';
+        $errors["email"] = "Veuillez rentrer une adresse mail";
+    }
+
+    // Vérification des mots de passe rentrés
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    if (empty($password)) {
+        $errors['password'] = 'Veuillez saisir votre mot de passe';
+    } else {
+        if (empty($confirmPassword)) {
+        $errors['confirmPassword'] = 'Veuillez confirmer votre mot de passe';
         } else {
-            $checkedPassword = filter_var(
-                $password,
-                FILTER_VALIDATE_REGEXP,
-                array("options" => array("regexp" => '/' . REG_EXP_PASSWORD . '/'))
-            );
-            if (!$checkedPassword) {
-                $errors['password'] = 'Veuillez saisir un mot de passe d\'au moins 8 caractères, comprenant au minimum une lettre et un chiffre';
+            if ($password != $confirmPassword) {
+                $errors['confirmPassword'] = 'Veuillez saisir 2 fois le même mot de passe';
             } else {
-                $securedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $checkedPassword = filter_var(
+                    $password,
+                    FILTER_VALIDATE_REGEXP,
+                    array("options" => array("regexp" => '/' . REG_EXP_PASSWORD . '/'))
+                );
+                if (!$checkedPassword) {
+                    $errors['password'] = 'Veuillez saisir un mot de passe d\'au moins 8 caractères, comprenant au minimum une lettre et un chiffre';
+                } else {
+                    $securedPassword = password_hash($password, PASSWORD_DEFAULT);
+                }
             }
         }
     }
 
-    // if(empty($errors)){
-    //     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
-    //     $user = new User($pseudo, $email, $securedPassword, "", 2);
-    //     $user->save();
-    // }
-
-}
-
-// if(empty($errors)){  
-    
-
-// }
 }
 
 # Appel des vues
@@ -100,7 +87,8 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User($pseudo, $email, $securedPassword, "", 2);
     $user->save();
     $id= $pdo->lastInsertId();
-// Vérification de la photo de profil
+    SessionFlash::set('Un nouveau membre s\'est inscrit dans la taverne');
+    // Vérification de la photo de profil
     if (isset($_FILES['filePicture'])) {
         $filePicture = $_FILES['filePicture'];
         if(!empty($filePicture['tmp_name'])){

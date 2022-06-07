@@ -8,7 +8,9 @@
     <div class="text">
         <div class="info">
             <h4> Qui suis-je?</h4>
-            <p> J'aime étudier tous les langages de programmation à la Manu</p>
+            <p id="description">Actuellement en reconversion professionnelle de développeur web, j'aime étudier tous les langages de programmation à la Manu. <br>
+                De nature calme et réfléchi, ce qui me passionne dans les jeux vidéo est la manière dont les choses sont imaginées par les créateurs. <br>
+            </p>
         </div>
         <div class="contact">
             <h4> Me contacter </h4>

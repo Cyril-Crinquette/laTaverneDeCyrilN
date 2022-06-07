@@ -1,37 +1,24 @@
 /* ----------------RESPONSIVE MOBILE-------------- */
 
-/* body{
-background-color: black;
-color: white;
-} */
-
-.main>.row {
+.main>.row{
     height: 100%;
 }
 
-.contentMiddle {
+.contentMiddle{
     height: 100%;
 }
 
-/* .firstColumn {
-}
-
-.secondColumn {
-}
-
-.thirdColumn {
-} */
 .navCat, .feelings{
     margin-top: 2em;
 }
 
-.imgDiv {
+.imgDiv{
     display: flex;
     justify-content: center;
     margin-top: 1em;
 }
 
-.imgDiv>img {
+.imgDiv>img{
     width: 100%;
 }
 
@@ -47,24 +34,14 @@ color: white;
         text-align: center;
         margin:1.5em;
     } 
-
-    
 }
-
 /* --------------------------------------------------- */
 
 /* -------------------RESPONSIVE PC------------------- */
 
-@media screen and (min-width: 768px) {
-
-    /* .firstColumn {
-    }
-
-    .secondColumn {
-    } */
-
+@media screen and (min-width: 768px){
     body{
-        height:140%;
+        height:180%;
     }
     
     .categoryList{
@@ -86,7 +63,6 @@ color: white;
     #contact{
         margin-left: 3em; 
     }
-
 }
 
 /* ---------------------------------------------------- */

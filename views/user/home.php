@@ -1,4 +1,5 @@
 <!------------------------------------------------------- Vue de la page d'accueil--------------------------------------------------------- -->
+
 <div class="container-fluid main">
     <div class="row">
     <?php 
@@ -11,19 +12,21 @@
                     <img src="/public/assets/img/home2.jpg" alt="image de nombreux jeux issus de différentes catégories">
                 </div>
                 <div class= "textContent">
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                        dignissimos officia nihil, fuga quod non. Error!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                        dignissimos officia nihil, fuga quod non. Error!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                        facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                        dignissimos officia nihil, fuga quod non. Error!</p>
+                    <p> Vous en avez marre des banalités lues dans la presse actuelle? <br>
+                    De tous ces blockbusters sans saveur qui pullulent et occupent tout l'espace médiatique à chaque fin d'année? <br>
+                    Bref vous avez besoin de renouveau? Ne bougez pas, vous êtes au bon endroit! <br>
+                    En effet, ce site a pour but de faire découvrir aux internautes des jeux vidéo qui sont, pour certains, moins mis en avant dans la presse vidéoludique. <br>
+                    Sur la taverne de Cyril, les rédacteurs d'articles ne s'attardent pas sur les graphismes ou la technique pure, mais sur le coeur même d'un jeu vidéo. <br>
+                    Ainsi, pour les diverses catégories que vous trouverez sur le site, les contenus traiteront aussi bien de jeux indépendants que de AAA. <br>
+                    L'idée est de mettre en avant les spécificités d'un jeu et d'expliquer pourquoi on le recommande. <br>
+                    Donc en quelque sorte, on place les bons jeux vidéo sous le feu des projecteurs, pour redonner ses lettres de noblesse au jeu vidéo tel qu'on l'a toujours aimé. <br>
+                    Par ailleurs, il existe une trés grande variété de genres dans l'univers vidéoludique et la taverne a également pour but de vous faire découvrir de nouvelles choses. <br>
+                    Sortir de sa zone de confort et changer ses habitudes est souvent trés enrichissant, alors si vous êtes un joueur occasionnel, on vous invite à adopter un nouveau point de vue. <br>
+                    Quant aux néophytes qui ne jouent et ne connaissent pas le jeu vidéo, on vous envie, pléthore de pépites vidéoludiques vous attendent, foncez et profitez!
+                    </p>
                 </div>
             </div>
         </div>
-
         <div class="thirdColumn col-12 col-md-2">
             <div>
                 <h4 class="text-center feelings">Coups de coeur de l'année</h4>
@@ -61,34 +64,6 @@
                 <p id="contact"> Qui suis-je? Me contacter</p>
             </a>
         </div>
-
     </div>
 </div>
-<!------------------------------------------------  Modale de connexion  --------------------------------------------------- -->
-
-<!-- <div id="modal" class="modal">
-    <form class="modal-content" action="" method="post">
-        <div class="headContainer">
-            <span id="close" class="close" title="Close Modal">&times;</span>
-            <h1>La taverne de Cyril</h1>
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Mail</b></label>
-            <input type="email" placeholder="Mail" required>
-
-            <label for="psw"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Mot de passe" required>
-
-            <button type="submit" id="connect">Se connecter</button>
-
-        </div>
-
-        <div class="footContainer">
-            <div class="signUp">
-                <p>Pas encore de compte ? <a class=" signUpLink" href="/inscription">S'inscrire</a></p>
-            </div>
-        </div>
-    </form>
-</div> -->
-<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->

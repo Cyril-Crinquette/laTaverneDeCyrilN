@@ -14,8 +14,6 @@ $style = 'dashBoardArticles.css';
 $pageTitle = 'Dash board articles';
 
 $articlesList = Article::getAll();
-// $usersList = User::getAll($search);
-
 $email= $_SESSION['user']->email;
 $user = User::getByEmail($email);
 

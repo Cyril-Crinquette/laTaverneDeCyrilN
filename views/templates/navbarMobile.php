@@ -2,10 +2,10 @@
 <div class="collapse mobileNav d-md-none" id="navbarToggleExternalContent">
     <div class="listNavMobile">
         <?php
-                        foreach ($categories as $value) {
-                            echo '<div><a href="/category?id='.$value->id.'">'.$value->name.'</a></div>';
-                        };
-                    ?>
+            foreach ($categories as $value) {
+                echo '<div><a href="/category?id='.$value->id.'">'.$value->name.'</a></div>';
+            };
+        ?>
     </div>
 </div>
 <nav class="navbar mobileNav navbar-dark d-md-none">
@@ -20,15 +20,16 @@
         </div>
         <div>
             <?php if(empty($_SESSION["user"])){?>
-                <p id="userInt"> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
+            <p id="userInt"> <a href="/connexion">Connexion</a>/<a href="/inscription">Inscription</a> </p>
             <?php } else {?>
-                <p id="userInt"> <a href="/déconnexion">Déconnexion</a> </p>
-                <a href="/profil?id=<?=$_SESSION['user']->id?>">
-                    <div id="userPicture">
-                        <img class="userImg" src="/public/assets/img/user/<?=$_SESSION['user']->id?>.jpg" alt="image de profil de l'utilisateur">
-                    </div>
-                </a>
-            <?php } ?> 
+            <p id="userInt"> <a href="/déconnexion">Déconnexion</a> </p>
+            <a href="/profil?id=<?=$_SESSION['user']->id?>">
+                <div id="userPicture">
+                    <img class="userImg" src="/public/assets/img/user/<?=$_SESSION['user']->id?>.jpg"
+                        alt="image de profil de l'utilisateur">
+                </div>
+            </a>
+            <?php } ?>
         </div>
     </div>
 </nav>

@@ -12,28 +12,12 @@ require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 require_once dirname(__FILE__) . '/../models/User.php';
 
 # Appel des constantes et initialisation du tableau d'erreurs
-require_once(dirname(__FILE__) . '/../config/constCategory.php');
 require_once(dirname(__FILE__) . '/../config/constForm.php');
 $errors = [];
 
 // Nommage des variables pour appeler le fichier CSS voulu et afficher le titre voulu
 $style = 'userModify.css';
 $pageTitle = 'Modification du profil';
-
-// $email= intval(filter_input(INPUT_GET,'email',FILTER_SANITIZE_SPECIAL_CHARS));
-// $id= intval(filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT));
-
-// var_dump($_SESSION['user']);
-// die;
-
-// if ($user instanceof PDOException) {
-//     $error = $user->getMessage();
-// }
-
-// $id= $_SESSION['user']->id;
-// $user = User::getOne($id);
-
-
 
     if (!empty($_GET)) {
         $id = trim(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -45,9 +29,7 @@ $pageTitle = 'Modification du profil';
     $pseudo = $user->pseudo;
     $password = $user->password;
     $description = $user->description;
-    // $id_roles=$user->id_roles;
     $id_roles= $_SESSION['user']->id_roles;
-
 
     
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -126,26 +108,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($errors)) {
         $oneUser = new User($pseudo, $email, $securedPassword, $description, $id_roles, $validated_at);
         $user = $oneUser->update($id);
+        SessionFlash::set('Le profil a bien été mis à jour');
     }
 }
-
-    // if(empty($errors)){
-    //     $securedPassword = password_hash($password, PASSWORD_DEFAULT);
-    //     $user = new User($pseudo, $email, $securedPassword, "", 2);
-    //     $user->save();
-    //     $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/validation?mail='.$email;
-    //     $message = '
-    //     Veuillez cliquer sur le lien suivant:<br>
-    //     <a href="'.$link.'">Activation</a>
-    //     ';
-    //     mail($email, 'Validation de votre inscription', $message);
-    // }
-
-    
-    
-
-
-
 
 # Appel des vues
 if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {

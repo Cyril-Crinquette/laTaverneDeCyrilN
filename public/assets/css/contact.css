@@ -35,7 +35,7 @@ form{
     flex-direction: column;
 }
 
-p, input, textarea{
+#description, input, textarea{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -62,40 +62,15 @@ button{
 
 /* -------------------RESPONSIVE PC------------------- */
 
-/* @media screen and (min-width: 768px) {
-    main{
-        display: flex;
-        height: 30em;
-        margin: 1em 10em;
-    }
-
-    .img{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: none;
-    }
-
-    .text{
-        margin:none;
-    }
-} */
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px){
     body{
         height:110%;
     }
 
     .text{
         border: solid 0.1em rgb(235, 250, 234);
-        /* background-color: white;
-        color: black; */
     }
 
-    /* input{
-        color: green;
-    } */
     .back{
         display: flex;
         justify-content: flex-end;
@@ -104,7 +79,7 @@ button{
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px){
     main{
         display: flex;
         height: 30em;
@@ -127,6 +102,5 @@ button{
         width: 60%;
         margin:none;
     }
-
 }
 /* ---------------------------------------------------- */

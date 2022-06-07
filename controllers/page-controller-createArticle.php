@@ -15,7 +15,6 @@ $style = 'createArticle.css';
 $pageTitle = 'Création d\'article';
 
 # Appel des constantes et initialisation du tableau d'erreurs
-// require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
 $errors=[];
 $id_users= $_SESSION['user']->id;
@@ -30,49 +29,43 @@ if($_SESSION['user']->id_roles != 1) {
 $categoryList = Category::getAll(); 
 $categoryId= [];
 foreach ($categoryList as $key => $value) {
-array_push($categoryId, $value->id);
+    array_push($categoryId, $value->id);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-# Traitement des données
+    # Traitement des données
 
-// Catégorie
-$category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS));
+    // Catégorie
+    $category = trim(filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS));
     if (!empty($category)) {
         if (!in_array($category, $categoryId)) {
             $errors["category"] = "La catégorie entrée n'est pas valide!";
         }
     }
 
-// Titre
-$title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
-$isOk = filter_var($title, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>'/'.REG_EXP_LOGIN.'/')));
+    // Titre
+    $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES));
+    $isOk = filter_var($title, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>'/'.REG_EXP_LOGIN.'/')));
 
-if(!empty($title)){
-    if(!$isOk){
-        $errors['title'] = 'Merci de choisir un titre valide';
+    if(!empty($title)){
+        if(!$isOk){
+            $errors['title'] = 'Merci de choisir un titre valide';
+        }
+    }else{
+        $errors['title'] = 'Vous devez choisir un titre';
     }
-}else{
-    $errors['title'] = 'Vous devez choisir un titre';
-}
 
-// Contenu de l'article
-$content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
-if(!empty($content)){
-    $checkMsg = filter_var($content, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
-    if(!$checkMsg){
-        $errors["content"] = "Veuillez saisir des caractères valides pour que votre article paraisse";
+    // Contenu de l'article
+    $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS));
+    if(!empty($content)){
+        $checkMsg = filter_var($content, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REG_EXP_TEXTAREA . '/')));
+        if(!$checkMsg){
+            $errors["content"] = "Veuillez saisir des caractères valides pour que votre article paraisse";
+        }
+    } else {
+        $errors["content"] = "Veuillez écrire votre article";
     }
-} else {
-    $errors["content"] = "Veuillez écrire votre article";
-}
-
-// if (empty($errors)) {
-//     $article = new Article($id_users, $category, $title, $content, $publicated_at);
-//     $article->save();
-//     $id = $article->id;
-// }
 }
 
 # Appel des vues
@@ -82,6 +75,7 @@ if (empty($errors) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $article = new Article($id_users, $category, $title, $content, $publicated_at);
     $article->save();
     $id= $pdo->lastInsertId();
+    SessionFlash::set('L\'article est désormais disponible dans la taverne');
      // Vérification de la photo de l'article
     if (isset($_FILES['filePicture'])) {
         $filePicture = $_FILES['filePicture'];

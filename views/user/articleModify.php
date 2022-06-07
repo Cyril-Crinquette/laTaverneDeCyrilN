@@ -5,7 +5,8 @@
         <img src="/public/assets/img/articleModify.jpg" alt="des boîtes de jeux en pagaille, de différents genres">
     </div>
     <div class="text">
-    <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" enctype="multipart/form-data" method="post">
+        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>?id=<?=$id?>" enctype="multipart/form-data"
+            method="post">
             <div class="formDiv">
                 <label for="category">Catégorie</label>
                 <select name="category" required id="category" class="form-control">
@@ -19,7 +20,8 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la catégorie si elle existe -->
                 </div>
                 <label for="title">Titre de l'article</label>
-                <input type="text" required pattern="^[a-zA-ZÀ-ÿ0-9. -\']*$" name="title" id="title" value="<?=$article->title ?? ''?>">
+                <input type="text" required pattern="^[a-zA-ZÀ-ÿ0-9. -\']*$" name="title" id="title"
+                    value="<?=$article->title ?? ''?>">
                 <!-- Coallescente permettant de laisser affiché le titre s'il est correct -->
                 <div class="errors">
                     <?= $errors['title'] ?? '' ?>
@@ -33,7 +35,9 @@
                     <!-- Coallescente permettant d'afficher l'erreur liée à la photo de profil si elle existe -->
                 </div>
                 <label for="content">Contenu de l'article</label>
-                <textarea name="content" pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"-]*$" id="content"><?=$article->content ?? ''?></textarea>
+                <textarea name="content"
+                    pattern="^[0-9a-zA-ZÀÁÂÆÇÈÉÊËÌÍÎÏÑÒÓÔŒÙÚÛÜÝŸàáâæçèéêëìíîïñòóôœùúûüýÿ=\/\^+·,;:!°\[\]{}?*<>()&$#%._\n\r \'\"
+                    -]*$" id="content"><?=$article->content ?? ''?></textarea>
                 <div class="errors"><?= $errors['content'] ?? '' ?></div>
                 <!-- Coallescente permettant d'afficher l'erreur liée au contenu de l'article si elle existe -->
                 <input type="submit" value="Publier">
@@ -41,28 +45,4 @@
         </form>
     </div>
 </main>
-
-
-<!---------------------------------------------  Modale de connexion  ------------------------------------------------ -->
-
-<!-- <div id="modal" class="modal">
-    <form class="modal-content" action="" method="post">
-        <div class="headContainer">
-            <span id="close" class="close" title="Close Modal">&times;</span>
-            <h1>La taverne de Cyril</h1>
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Mail</b></label>
-            <input type="text" placeholder="Mail" required>
-
-            <label for="psw"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Mot de passe" required>
-
-            <button type="submit" id="connect">Se connecter</button>
-
-        </div>
-
-    </form>
-</div> -->
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->

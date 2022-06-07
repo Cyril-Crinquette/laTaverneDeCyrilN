@@ -20,7 +20,7 @@ body{
     color: white;
 }
 
-.smallLogo {
+.smallLogo{
     height: 60px;
     width: 60px;
 }   
@@ -61,14 +61,13 @@ a:hover{
     object-fit: cover;
 }
 
-.imgDiv {
+.imgDiv{
     display: flex;
     justify-content: center;
     margin-top: 1em;
 }
 
 /*----------------------- NAVBAR ----------------- */
-
 .mobileNav{
     --bs-bg-opacity: 1;
     background-color: rgb(27,172,22);
@@ -104,11 +103,9 @@ a:hover{
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 
-
 /* ---------------------RESPONSIVE PC------------------- */
 
-@media screen and (min-width: 768px) {
-
+@media screen and (min-width: 768px){
     body{
         height: 130%; 
         border: solid 1.2em rgb(27,172,22);
@@ -137,18 +134,9 @@ a:hover{
         height: 100px;
     }
 
-    /* .logo {
-    } */
-
     .logo>img{
         height:100%;
     }
-
-    /* .titleHeader {
-    } */
-
-    /* .loginHeader {
-    } */
 
     h1{
         -webkit-text-stroke: 0.8px;
@@ -173,8 +161,6 @@ a:hover{
         justify-content: flex-end;
         margin-right: 0.5em;
     }
-
-    
-    /* ----------------------------------------------------- */
-
 }
+/* ----------------------------------------------------- */
+

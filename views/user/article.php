@@ -1,11 +1,12 @@
 <!------------------ ----------------------- Vue de la page article ------------------------------------------- -->
-
+<h6 class="text-center">
+    <?=SessionFlash::display('message')?>
+</h6>
 <div class="container-fluid main">
     <div class="row">
         <?php 
     include(dirname(__FILE__).'/../templates/navbar.php');
     ?>
-
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> <?=$article->title?> </h1>
@@ -25,22 +26,21 @@
                 </p>
                 <?php } ?>
 
-
-
                 <div class="remark">
                     <?php
                     foreach ($allRemarks as $remark) { ?>
                     <p id="remarkContent"><?=$remark->content?></p>
-                    <p><?=$remark->publicated_at?> par <span><?=$remark->author?></span></p>
-                    <?php }
+                    <p><?=$remark->publicated_at?> par <span><?=$remark->author?></span>
+                        <?php if (isset($_SESSION['user']) &&($_SESSION['user']->id_roles == 1)) { ?><a href="#"
+                            onclick="deleteRemarkConfirm('/suppression-commentaire?id=<?=$remark->id?>')">Supprimer</a>
+                    </p>
+                    <?php 
+                        }
+                    }
                     ?>
-
                 </div>
             </div>
-
-
         </div>
-
         <div class="thirdColumn col-12 col-md-2">
             <div>
                 <h4 class="text-center feelings">Coups de coeur de l'année</h4>
