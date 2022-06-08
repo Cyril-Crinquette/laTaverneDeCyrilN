@@ -13,7 +13,6 @@ $style = 'inscription.css';
 $pageTitle = 'Deviens membre';
 
 # Appel des constantes et initialisation du tableau d'erreurs
-require_once(dirname(__FILE__).'/../config/constCategory.php');
 require_once(dirname(__FILE__).'/../config/constForm.php');
 
 // Sécurisation de la validation du compte par envoi de mail

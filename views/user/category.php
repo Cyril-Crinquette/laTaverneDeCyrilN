@@ -3,8 +3,8 @@
 <div class="container-fluid main">
     <div class="row">
         <?php 
-    include(dirname(__FILE__).'/../templates/navbar.php');
-    ?>
+        include(dirname(__FILE__).'/../templates/navbar.php');
+        ?>
         <div class="secondColumn col-12 col-md-8">
             <div class="d-flex flex-column contentMiddle">
                 <h1 id="mobileTitle" class="text-center"> <?=$category->name?> </h1>
@@ -13,15 +13,7 @@
                 </div>
                 <div>
                     <div class="textContent">
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                            dignissimos officia nihil, fuga quod non. Error!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                            dignissimos officia nihil, fuga quod non. Error!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis odit temporibus
-                            facilis eligendi deserunt obcaecati vel nulla cumque distinctio similique voluptates tempora
-                            dignissimos officia nihil, fuga quod non. Error!</p>
+                        <p><?=$category->content?></p>
                     </div>
                 </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4">

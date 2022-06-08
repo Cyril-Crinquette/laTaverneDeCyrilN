@@ -8,6 +8,8 @@ class Category{
     // Déclaration d’attributs spécifiques à la classe 'Category' ---------------------------
     private int $_id;
     private string $_name;
+    private string $_content;
+
 
 
     // Setter
@@ -21,6 +23,11 @@ class Category{
         return $this->_name;
     }
 
+    public function getContent(): string
+    {
+        return $this->_content;
+    }
+
 
     // Getter
     public function setId(int $id): void
@@ -28,9 +35,14 @@ class Category{
         $this->_id = $id;
     }
 
-    public function setIdRoles(int $name): void
+    public function setName(string $name): void
     {
         $this->_name = $name;
+    }
+
+    public function setContent(string $content): void
+    {
+        $this->_content = $content;
     }
 
 
@@ -38,11 +50,8 @@ class Category{
 
     public static function getAll():array{
         try {
-            $sql = 'SELECT `id`, `name` 
-                    -- `content` AS `contentRemark`
+            $sql = 'SELECT `id`, `name`, `content` 
                     FROM  `categories` 
-                    -- JOIN `remarks` 
-                    -- ON `users`.`id` = `remarks`.`id_users`
                     ';
             $sth = Database::dbconnect() -> prepare($sql);
             $verif = $sth -> execute();
